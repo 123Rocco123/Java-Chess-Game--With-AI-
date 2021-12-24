@@ -27,7 +27,26 @@ public class chessgame {
     Pieces King = new Pieces();
     King.positionSetter(4, "|Ki|");
 
+    Pieces Pawn1 = new Pieces();
+    Pieces Pawn2 = new Pieces();
+    Pieces Pawn3 = new Pieces();
+    Pieces Pawn4 = new Pieces();
+    Pieces Pawn5 = new Pieces();
+    Pieces Pawn6 = new Pieces();
+    Pieces Pawn7 = new Pieces();
+    Pieces Pawn8 = new Pieces();
+    Pawn1.positionSetter(8, "|P1|");
+    Pawn2.positionSetter(9, "|P2|");
+    Pawn3.positionSetter(10, "|P3|");
+    Pawn4.positionSetter(11, "|P4|");
+    Pawn5.positionSetter(12, "|P5|");
+    Pawn6.positionSetter(13, "|P6|");
+    Pawn7.positionSetter(14, "|P7|");
+    Pawn8.positionSetter(15, "|P8|");
+
+    // The object below is used to create a new board.
     Board startGameBoard = new Board();
+    // The call below is to initialize the empty borad. 
     startGameBoard.BoardSetter();
 
     startGameBoard.pieceAddition(rook1.startingLocation, rook1.piece);
@@ -42,6 +61,15 @@ public class chessgame {
     startGameBoard.pieceAddition(Queen.startingLocation, Queen.piece);
 
     startGameBoard.pieceAddition(King.startingLocation, King.piece);
+
+    startGameBoard.pieceAddition(Pawn1.startingLocation, Pawn1.piece);
+    startGameBoard.pieceAddition(Pawn2.startingLocation, Pawn2.piece);
+    startGameBoard.pieceAddition(Pawn3.startingLocation, Pawn3.piece);
+    startGameBoard.pieceAddition(Pawn4.startingLocation, Pawn4.piece);
+    startGameBoard.pieceAddition(Pawn5.startingLocation, Pawn5.piece);
+    startGameBoard.pieceAddition(Pawn6.startingLocation, Pawn6.piece);
+    startGameBoard.pieceAddition(Pawn7.startingLocation, Pawn7.piece);
+    startGameBoard.pieceAddition(Pawn8.startingLocation, Pawn8.piece);
 
     for (int i = 0; i < (startGameBoard.ChessBoard).size(); i++) {
       if (i % 8 == 0) {
