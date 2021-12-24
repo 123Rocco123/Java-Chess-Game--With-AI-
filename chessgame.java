@@ -4,6 +4,16 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class chessgame {
+  public static void desiredLocation() {
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("What piece do you want to move?");
+    String pieceToMove = input.nextLine();
+
+    System.out.println("Where do you want to move it?");
+    String desiredLocation = input.nextLine();
+  }
+
   // The function below is used to set the Player's chess pieces at the start of a new game.
   public static void initializingGame() {
     Pieces rook1 = new Pieces();
@@ -46,7 +56,7 @@ public class chessgame {
 
     // The object below is used to create a new board.
     Board startGameBoard = new Board();
-    // The call below is to initialize the empty borad. 
+    // The call below is to initialize the empty borad.
     startGameBoard.BoardSetter();
 
     startGameBoard.pieceAddition(rook1.startingLocation, rook1.piece);

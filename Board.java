@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 class Board {
-  // The ArrayList below is used to contain the chessboard that the players are playing on. 
+  // The ArrayList below is used to contain the chessboard that the players are playing on.
   ArrayList<String> ChessBoard = new ArrayList<String>();
 
   // The instance variables below are used to contain an empty spot, and an object of the "Pieces" class.

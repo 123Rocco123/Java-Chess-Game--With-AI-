@@ -3,9 +3,17 @@ class Pieces {
   int startingLocation;
   String piece;
 
-  // The function below is used to assign values to the instance variables above. 
+  // The instance variable below is used to show that the piece is part of the player's team.
+  boolean playerTeam = true;
+
+  // The function below is used to assign values to the instance variables above.
   public void positionSetter(int start, String chessPiece) {
     this.startingLocation = start;
     this.piece = chessPiece;
+  }
+
+  // The function below is used to re-assign the value inside of the 
+  public computerTeam() {
+    this.playerTeam = false;
   }
 }
