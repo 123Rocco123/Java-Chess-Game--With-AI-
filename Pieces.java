@@ -1,12 +1,11 @@
 class Pieces {
-  int position;
-  boolean isFree;
+  boolean isFree = false;
 
-  public void emptySpaceCheck(boolean free) {
-    this.isFree = free;
-  }
+  int startingLocation;
+  String piece;
 
-  public void positionSetter(int variable) {
-    this.position = variable;
+  public void positionSetter(int start, String chessPiece) {
+    this.startingLocation = start;
+    this.piece = chessPiece;
   }
 }
