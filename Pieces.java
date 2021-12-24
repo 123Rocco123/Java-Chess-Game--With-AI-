@@ -12,8 +12,8 @@ class Pieces {
     this.piece = chessPiece;
   }
 
-  // The function below is used to re-assign the value inside of the 
-  public computerTeam() {
+  // The function below is used to re-assign the value inside of the
+  public void computerTeam() {
     this.playerTeam = false;
   }
 }
