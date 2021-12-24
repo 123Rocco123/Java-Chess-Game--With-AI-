@@ -1,7 +1,12 @@
 class Pieces {
-  int x;
+  int position;
+  boolean isFree;
 
-  public void tester(int variable) {
-    this.x = variable;
+  public void emptySpaceCheck(boolean free) {
+    this.isFree = free;
+  }
+
+  public void positionSetter(int variable) {
+    this.position = variable;
   }
 }
