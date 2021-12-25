@@ -4,12 +4,14 @@ import java.util.ArrayList;
 class mainFile {
   Board BoardToPlayOn = new Board();
 
+  // The boardOutput function is to just output the chess board to the player.
   public void boardOutput() {
       for (String[] row : BoardToPlayOn.chessBoard) {
         System.out.println(Arrays.toString(row));
       }
   }
 
+  // The function below is used to store the assignment of the pawns.
   public void pawnAssignment(Object mainFileObject) {
     Pawn pawn1 = new Pawn();
     Pawn pawn2 = new Pawn();
