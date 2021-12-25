@@ -9,15 +9,15 @@ class mainFile {
   }
 
   public static void pawnAssignment() {
-    Pieces pawn1 = new Pieces();
-    Pieces pawn2 = new Pieces();
-    Pieces pawn3 = new Pieces();
-    Pieces pawn4 = new Pieces();
-    Pieces pawn5 = new Pieces();
-    Pieces pawn6 = new Pieces();
-    Pieces pawn7 = new Pieces();
-    Pieces pawn8 = new Pieces();
-    
+    Pawn pawn1 = new Pawn();
+    Pawn pawn2 = new Pawn();
+    Pawn pawn3 = new Pawn();
+    Pawn pawn4 = new Pawn();
+    Pawn pawn5 = new Pawn();
+    Pawn pawn6 = new Pawn();
+    Pawn pawn7 = new Pawn();
+    Pawn pawn8 = new Pawn();
+
   }
 
   public static void main(String[] args) {
