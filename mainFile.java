@@ -12,6 +12,13 @@ class mainFile {
 
   public void pawnAssignment(Object mainFileObject) {
     Pawn pawn1 = new Pawn();
+    Pawn pawn2 = new Pawn();
+    Pawn pawn3 = new Pawn();
+    Pawn pawn4 = new Pawn();
+    Pawn pawn5 = new Pawn();
+    Pawn pawn6 = new Pawn();
+    Pawn pawn7 = new Pawn();
+    Pawn pawn8 = new Pawn();
 
     pawn1.rowAssignment(1);
     pawn1.columnAssignment(1);
