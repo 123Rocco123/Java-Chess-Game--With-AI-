@@ -30,15 +30,7 @@ class Pieces {
     }
   }
 
-  public void freeSpace(int newRow, int newColumn) {
-    if (this.chessBoard[newRow][newColumn] == "|__|") {
-      this.chessBoard[newRow][newColumn] = chessPiece;
-      this.chessBoard[rowNow][columnNow] = "|__|";
-
-      this.row = newRow;
-      this.column = newColumn;
-    } else {
-      System.out.println("Invalid move\n");
-    }
+  public void setSpace(int newRow, int newColumn) {
+    this.chessBoard[newRow][newColumn] = this.chessPiece;
   }
 }
