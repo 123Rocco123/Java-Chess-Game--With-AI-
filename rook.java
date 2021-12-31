@@ -1,0 +1,3 @@
+class rook extends Pieces {
+  
+}
