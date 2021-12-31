@@ -11,8 +11,12 @@ class mainFile {
       }
   }
 
+  public void rookAssignment() {
+
+  }
+
   // The function below is used to store the assignment of the pawns.
-  public void pawnAssignment(Object mainFileObject) {
+  public void pawnAssignment() {
     Pawn pawn1 = new Pawn();
     Pawn pawn2 = new Pawn();
     Pawn pawn3 = new Pawn();
@@ -75,6 +79,6 @@ class mainFile {
 
   public static void main(String[] args) {
     mainFile start = new mainFile();
-    start.pawnAssignment(start);
+    start.pawnAssignment();
   }
 }
