@@ -3,7 +3,7 @@
 class bishop extends Pieces {
   @Override
   public boolean allowedMoves(int newRow, int newColumn) {
-    for (int i = 0; i < 8; i++) {
+    for (int i = 1; i < 9; i++) {
       // Move up and to the right
       if ((newRow == (this.row + i)) && (newColumn == this.column + i)) {
         return true;
