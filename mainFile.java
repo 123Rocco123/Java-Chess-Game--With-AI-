@@ -4,6 +4,27 @@ import java.util.ArrayList;
 class mainFile {
   Board BoardToPlayOn = new Board();
 
+  Pawn pawn1 = new Pawn();
+  Pawn pawn2 = new Pawn();
+  Pawn pawn3 = new Pawn();
+  Pawn pawn4 = new Pawn();
+  Pawn pawn5 = new Pawn();
+  Pawn pawn6 = new Pawn();
+  Pawn pawn7 = new Pawn();
+  Pawn pawn8 = new Pawn();
+
+  rook rook1 = new rook();
+  rook rook2 = new rook();
+
+  knight knight1 = new knight();
+  knight knight2 = new knight();
+
+  bishop bishop1 = new bishop();
+  bishop bishop2 = new bishop();
+
+  Queen queen1 = new Queen();
+  King king1 = new King();
+
   // The boardOutput function is to just output the chess board to the player.
   public void boardOutput() {
       for (String[] row : BoardToPlayOn.chessBoard) {
@@ -14,9 +35,6 @@ class mainFile {
   // This function is used to assign the rooks to the chessboard.
      // This is the inital setup function.
   public void rookAssignment() {
-    rook rook1 = new rook();
-    rook rook2 = new rook();
-
     rook1.rowAssignment(1);
     rook1.columnAssignment(1);
     rook1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
@@ -32,9 +50,6 @@ class mainFile {
 
   // The function below are used to assign the bishops on the chessboard.
   public void bishopAssignment() {
-    bishop bishop1 = new bishop();
-    bishop bishop2 = new bishop();
-
     bishop1.rowAssignment(1);
     bishop1.columnAssignment(2);
     bishop1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
@@ -50,9 +65,6 @@ class mainFile {
 
   // The function is used to setup the horses on the board.
   public void knightAssignment() {
-    knight knight1 = new knight();
-    knight knight2 = new knight();
-
     knight1.rowAssignment(1);
     knight1.columnAssignment(3);
     knight1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
@@ -68,8 +80,6 @@ class mainFile {
 
   // The function is used to setup the queen on the board.
   public void queenAssignment() {
-    Queen queen1 = new Queen();
-
     queen1.rowAssignment(1);
     queen1.columnAssignment(4);
     queen1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
@@ -79,8 +89,6 @@ class mainFile {
 
   // The function is used to setup the king on the board.
   public void kingAssignment() {
-    Queen king1 = new Queen();
-
     king1.rowAssignment(1);
     king1.columnAssignment(5);
     king1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
@@ -91,15 +99,6 @@ class mainFile {
   // The function below is used to store the assignment of the pawns.
      // This is the inital setup function.
   public void pawnAssignment() {
-    Pawn pawn1 = new Pawn();
-    Pawn pawn2 = new Pawn();
-    Pawn pawn3 = new Pawn();
-    Pawn pawn4 = new Pawn();
-    Pawn pawn5 = new Pawn();
-    Pawn pawn6 = new Pawn();
-    Pawn pawn7 = new Pawn();
-    Pawn pawn8 = new Pawn();
-
     pawn1.rowAssignment(2);
     pawn1.columnAssignment(1);
     pawn1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
