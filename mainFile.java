@@ -11,6 +11,8 @@ class mainFile {
       }
   }
 
+  // This function is used to assign the rooks to the chessboard.
+     // This is the inital setup function.
   public void rookAssignment() {
     rook rook1 = new rook();
     rook rook2 = new rook();
@@ -29,6 +31,7 @@ class mainFile {
   }
 
   // The function below is used to store the assignment of the pawns.
+     // This is the inital setup function. 
   public void pawnAssignment() {
     Pawn pawn1 = new Pawn();
     Pawn pawn2 = new Pawn();
