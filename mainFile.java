@@ -67,7 +67,7 @@ class mainFile {
   }
 
   // The function is used to setup the queen on the board.
-  public void QueenAssignment() {
+  public void queenAssignment() {
     Queen queen1 = new Queen();
 
     queen1.rowAssignment(1);
@@ -75,6 +75,17 @@ class mainFile {
     queen1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
     queen1.chessPieceLook("|Q1|");
     queen1.setSpace(queen1.row, queen1.column);
+  }
+
+  // The function is used to setup the king on the board.
+  public void kingAssignment() {
+    Queen king1 = new Queen();
+
+    king1.rowAssignment(1);
+    king1.columnAssignment(5);
+    king1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    king1.chessPieceLook("|KI|");
+    king1.setSpace(king1.row, king1.column);
   }
 
   // The function below is used to store the assignment of the pawns.
@@ -144,7 +155,8 @@ class mainFile {
     rookAssignment();
     bishopAssignment();
     knightAssignment();
-    QueenAssignment();
+    queenAssignment();
+    kingAssignment();
 
     boardOutput();
   }
