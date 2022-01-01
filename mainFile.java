@@ -12,7 +12,20 @@ class mainFile {
   }
 
   public void rookAssignment() {
-    
+    rook rook1 = new rook();
+    rook rook2 = new rook();
+
+    rook1.rowAssignment(1);
+    rook1.columnAssignment(1);
+    rook1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    rook1.chessPieceLook("|R1|");
+    rook1.setSpace(rook1.row, rook1.column);
+
+    rook2.rowAssignment(1);
+    rook2.columnAssignment(8);
+    rook2.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    rook2.chessPieceLook("|R2|");
+    rook2.setSpace(rook2.row, rook2.column);
   }
 
   // The function below is used to store the assignment of the pawns.
@@ -73,12 +86,13 @@ class mainFile {
     pawn8.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
     pawn8.chessPieceLook("|P8|");
     pawn8.setSpace(pawn8.row, pawn8.column);
-
-    boardOutput();
   }
 
   public static void main(String[] args) {
     mainFile start = new mainFile();
     start.pawnAssignment();
+    start.rookAssignment();
+
+    start.boardOutput();
   }
 }
