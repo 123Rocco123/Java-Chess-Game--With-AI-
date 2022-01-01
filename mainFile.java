@@ -30,8 +30,26 @@ class mainFile {
     rook2.setSpace(rook2.row, rook2.column);
   }
 
+  // The function below are used to assign the bishops on the chessboard.
+  public void bishopAssignment() {
+    bishop bishop1 = new bishop();
+    bishop bishop2 = new bishop();
+
+    bishop1.rowAssignment(1);
+    bishop1.columnAssignment(2);
+    bishop1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    bishop1.chessPieceLook("|B1|");
+    bishop1.setSpace(bishop1.row, bishop1.column);
+
+    bishop2.rowAssignment(1);
+    bishop2.columnAssignment(7);
+    bishop2.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    bishop2.chessPieceLook("|B2|");
+    bishop2.setSpace(bishop2.row, bishop2.column);
+  }
+
   // The function below is used to store the assignment of the pawns.
-     // This is the inital setup function. 
+     // This is the inital setup function.
   public void pawnAssignment() {
     Pawn pawn1 = new Pawn();
     Pawn pawn2 = new Pawn();
@@ -91,11 +109,17 @@ class mainFile {
     pawn8.setSpace(pawn8.row, pawn8.column);
   }
 
+  // Used to setup the board.
+  public void initializingFunc() {
+    pawnAssignment();
+    rookAssignment();
+    bishopAssignment();
+
+    boardOutput();
+  }
+
   public static void main(String[] args) {
     mainFile start = new mainFile();
-    start.pawnAssignment();
-    start.rookAssignment();
-
-    start.boardOutput();
+    start.initializingFunc();
   }
 }
