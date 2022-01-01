@@ -40,4 +40,8 @@ class Pieces {
   public void setSpace(int newRow, int newColumn) {
     this.chessBoard[newRow][newColumn] = this.chessPiece;
   }
+
+  public String pieceReturn() {
+    return this.chessPiece;
+  }
 }

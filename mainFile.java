@@ -1,9 +1,14 @@
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class mainFile {
+  boolean win = false;
+
+  // The object below is used to store the board on which the players play on.
   Board BoardToPlayOn = new Board();
 
+  // The Objects below are used for the player's chess pieces.
   Pawn pawn1 = new Pawn();
   Pawn pawn2 = new Pawn();
   Pawn pawn3 = new Pawn();
@@ -24,6 +29,8 @@ class mainFile {
 
   Queen queen1 = new Queen();
   King king1 = new King();
+
+  Object[] chessPieces = {pawn1, pawn2, pawn3, pawn4, pawn5, pawn6, pawn7, pawn8, rook1, rook2, knight1, knight2, bishop1, bishop2, queen1, king1};
 
   // The boardOutput function is to just output the chess board to the player.
   public void boardOutput() {
@@ -148,6 +155,20 @@ class mainFile {
     pawn8.setSpace(pawn8.row, pawn8.column);
   }
 
+  public void moveFunction() {
+    Scanner input = new Scanner(System.in);
+
+    while (this.win == false) {
+      System.out.println("What row is the piece located at? ");
+      int row = input.nextInt();
+
+      System.out.println("What column is the piece located at? ");
+      int column = input.nextInt();
+
+      // Use a for loop, pass the objects into a funtion, check the function chess piece with the one that the user selected.
+    }
+  }
+
   // Used to setup the board.
   public void initializingFunc() {
     pawnAssignment();
@@ -158,6 +179,8 @@ class mainFile {
     kingAssignment();
 
     boardOutput();
+
+    moveFunction();
   }
 
   public static void main(String[] args) {
