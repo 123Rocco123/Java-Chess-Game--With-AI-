@@ -48,6 +48,24 @@ class mainFile {
     bishop2.setSpace(bishop2.row, bishop2.column);
   }
 
+  // The function is used to setup the horses on the board.
+  public void knightAssignment() {
+    knight knight1 = new knight();
+    knight knight2 = new knight();
+
+    knight1.rowAssignment(1);
+    knight1.columnAssignment(3);
+    knight1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    knight1.chessPieceLook("|K1|");
+    knight1.setSpace(knight1.row, knight1.column);
+
+    knight2.rowAssignment(1);
+    knight2.columnAssignment(6);
+    knight2.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    knight2.chessPieceLook("|K2|");
+    knight2.setSpace(knight2.row, knight2.column);
+  }
+
   // The function below is used to store the assignment of the pawns.
      // This is the inital setup function.
   public void pawnAssignment() {
@@ -114,6 +132,7 @@ class mainFile {
     pawnAssignment();
     rookAssignment();
     bishopAssignment();
+    knightAssignment();
 
     boardOutput();
   }
