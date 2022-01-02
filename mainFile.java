@@ -167,7 +167,18 @@ class mainFile {
 
       for (int i = 1; i < 9; i++) {
         if ((BoardToPlayOn.chessBoard[row][column]).equals("|P" + i + "|")) {
-          System.out.println("test");
+          System.out.println("Which row do you want to move the piece to? ");
+          int newRow = input.nextInt();
+
+          System.out.println("Which column do you want to move the piece to? ");
+          int newColumn = input.nextInt();
+
+          if (pawn1.allowedMoves(newRow, newColumn) == true) {
+            BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
+            BoardToPlayOn.chessBoard[row][column] = "|__|";
+
+            boardOutput();
+          }
         }
       }
     }
