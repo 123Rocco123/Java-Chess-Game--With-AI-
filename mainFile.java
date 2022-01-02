@@ -166,7 +166,7 @@ class mainFile {
       int column = input.nextInt();
 
       for (int i = 1; i < 9; i++) {
-        if (chessPieces[0].equals("|P" + i + "|")) {
+        if ((BoardToPlayOn.chessBoard[row][column]).equals("|P" + i + "|")) {
           System.out.println("test");
         }
       }
