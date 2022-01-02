@@ -30,7 +30,7 @@ class mainFile {
   Queen queen1 = new Queen();
   King king1 = new King();
 
-  Object[] chessPieces = {pawn1, pawn2, pawn3, pawn4, pawn5, pawn6, pawn7, pawn8, rook1, rook2, knight1, knight2, bishop1, bishop2, queen1, king1};
+  Object[] chessPieces = {"|P1|"};
 
   // The boardOutput function is to just output the chess board to the player.
   public void boardOutput() {
@@ -165,7 +165,11 @@ class mainFile {
       System.out.println("What column is the piece located at? ");
       int column = input.nextInt();
 
-      // Use a for loop, pass the objects into a funtion, check the function chess piece with the one that the user selected.
+      for (int i = 1; i < 9; i++) {
+        if (chessPieces[0].equals("|P" + i + "|")) {
+          System.out.println("test");
+        }
+      }
     }
   }
 
