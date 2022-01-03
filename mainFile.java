@@ -155,6 +155,7 @@ class mainFile {
     pawn8.setSpace(pawn8.row, pawn8.column);
   }
 
+  // The move function is used to determine what object has to be checked to be moved when the player selects it.
   public void moveFunction() {
     Scanner input = new Scanner(System.in);
 
