@@ -167,7 +167,7 @@ class mainFile {
       int column = input.nextInt();
 
       for (int i = 1; i < 9; i++) {
-        if ((BoardToPlayOn.chessBoard[row][column]).equals("|P" + i + "|")) {
+        if ((BoardToPlayOn.chessBoard[row][column]).equals("|P1|")) {
           System.out.println("Which row do you want to move the piece to? ");
           int newRow = input.nextInt();
 
@@ -180,6 +180,19 @@ class mainFile {
 
             boardOutput();
           }
+        } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|P2|")) {
+            System.out.println("Which row do you want to move the piece to? ");
+            int newRow = input.nextInt();
+
+            System.out.println("Which column do you want to move the piece to? ");
+            int newColumn = input.nextInt();
+
+            if (pawn2.allowedMoves(newRow, newColumn) == true) {
+              BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
+              BoardToPlayOn.chessBoard[row][column] = "|__|";
+
+              boardOutput();
+            }
         }
       }
     }
