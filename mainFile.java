@@ -155,6 +155,25 @@ class mainFile {
     pawn8.setSpace(pawn8.row, pawn8.column);
   }
 
+  public void assignment(int row, int column, String Userinput, Pawn ObjectName) {
+    Scanner input = new Scanner(System.in);
+
+    if ((Userinput).equals("|P1|")) {
+      System.out.println("Which row do you want to move the piece to? ");
+      int newRow = input.nextInt();
+
+      System.out.println("Which column do you want to move the piece to? ");
+      int newColumn = input.nextInt();
+
+      if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+        BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
+        BoardToPlayOn.chessBoard[row][column] = "|__|";
+
+        boardOutput();
+      }
+    }
+  }
+
   // The move function is used to determine what object has to be checked to be moved when the player selects it.
   public void moveFunction() {
     Scanner input = new Scanner(System.in);
@@ -166,37 +185,9 @@ class mainFile {
       System.out.println("What column is the piece located at? ");
       int column = input.nextInt();
 
-      for (int i = 1; i < 9; i++) {
-        if ((BoardToPlayOn.chessBoard[row][column]).equals("|P1|")) {
-          System.out.println("Which row do you want to move the piece to? ");
-          int newRow = input.nextInt();
-
-          System.out.println("Which column do you want to move the piece to? ");
-          int newColumn = input.nextInt();
-
-          if (pawn1.allowedMoves(newRow, newColumn) == true) {
-            BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
-            BoardToPlayOn.chessBoard[row][column] = "|__|";
-
-            boardOutput();
-          }
-        } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|P2|")) {
-            System.out.println("Which row do you want to move the piece to? ");
-            int newRow = input.nextInt();
-
-            System.out.println("Which column do you want to move the piece to? ");
-            int newColumn = input.nextInt();
-
-            if (pawn2.allowedMoves(newRow, newColumn) == true) {
-              BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
-              BoardToPlayOn.chessBoard[row][column] = "|__|";
-
-              boardOutput();
-            }
-        }
+      assignment(row, column, BoardToPlayOn.chessBoard[row][column], pawn1);
       }
     }
-  }
 
   // Used to setup the board.
   public void initializingFunc() {
