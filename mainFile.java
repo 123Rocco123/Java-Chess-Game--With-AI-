@@ -178,6 +178,7 @@ class mainFile {
   // The move function is used to determine what object has to be checked to be moved when the player selects it.
   public void moveFunction() {
     Scanner input = new Scanner(System.in);
+    Pawn[] pawnObjects = {this.pawn1, this.pawn2, this.pawn3, this.pawn4, this.pawn5, this.pawn6, this.pawn7, this.pawn8};
 
     while (this.win == false) {
       System.out.println("What row is the piece located at? ");
@@ -188,6 +189,8 @@ class mainFile {
 
       for (int i = 1; i < 9; i++) {
         if ((BoardToPlayOn.chessBoard[row][column]).equals("|P" + i + "|")) {
+          assignment(row, column, pawnObjects[(i - 1)]);
+        } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|R" + i + "|")) {
           assignment(row, column, pawn1);
         }
       }
