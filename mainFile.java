@@ -155,22 +155,23 @@ class mainFile {
     pawn8.setSpace(pawn8.row, pawn8.column);
   }
 
-  public void assignment(int row, int column, String Userinput, Pawn ObjectName) {
+  public void assignment(int row, int column, Pawn ObjectName) {
     Scanner input = new Scanner(System.in);
 
-    if ((Userinput).equals("|P1|")) {
-      System.out.println("Which row do you want to move the piece to? ");
-      int newRow = input.nextInt();
+    System.out.println("Which row do you want to move the piece to? ");
+    int newRow = input.nextInt();
 
-      System.out.println("Which column do you want to move the piece to? ");
-      int newColumn = input.nextInt();
+    System.out.println("Which column do you want to move the piece to? ");
+    int newColumn = input.nextInt();
 
-      if (ObjectName.allowedMoves(newRow, newColumn) == true) {
-        BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
-        BoardToPlayOn.chessBoard[row][column] = "|__|";
+    if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+      BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
+      BoardToPlayOn.chessBoard[row][column] = "|__|";
 
-        boardOutput();
-      }
+      boardOutput();
+    } else {
+      System.out.println("Invalid Move");
+      assignment(row, column, ObjectName);
     }
   }
 
@@ -185,9 +186,13 @@ class mainFile {
       System.out.println("What column is the piece located at? ");
       int column = input.nextInt();
 
-      assignment(row, column, BoardToPlayOn.chessBoard[row][column], pawn1);
+      for (int i = 1; i < 9; i++) {
+        if ((BoardToPlayOn.chessBoard[row][column]).equals("|P" + i + "|")) {
+          assignment(row, column, pawn1);
+        }
       }
     }
+  }
 
   // Used to setup the board.
   public void initializingFunc() {
