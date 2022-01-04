@@ -6,6 +6,12 @@ class Pieces {
 
   String[][] chessBoard;
 
+  String[] AIPieces = {"|PA|", "|PB|", "|PC|", "|PD|", "|PE|", "|PF|", "|PG|", "|PH|",
+                       "|R3|", "|R4|",
+                       "|B3|", "|B4|",
+                       "|K3|", "|K4|",
+                       "|Q2|", "|K2|"};
+
   // The function is used to assign the rows to the chessboard, by changing the instance variable in the class.
   public void rowAssignment(int rowNow) {
     this.row = rowNow;

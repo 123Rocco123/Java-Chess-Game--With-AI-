@@ -444,16 +444,22 @@ class mainFile {
       for (int i = 1; i < 9; i++) {
         if ((BoardToPlayOn.chessBoard[row][column]).equals("|P" + i + "|")) {
           assignmentPawn(row, column, pawnObjects[(i - 1)]);
+          break;
         } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|R" + i + "|")) {
           assignmentRook(row, column, rookObjects[(i - 1)]);
+          break;
         } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|B" + i + "|")) {
           assignmentBishop(row, column, bishopObjects[(i - 1)]);
+          break;
         } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|K" + i + "|")) {
           assignmentKnight(row, column, knightObjects[(i - 1)]);
+          break;
         } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|Q" + i + "|")) {
           assignmentQueen(row, column, queenObject[(i - 1)]);
+          break;
         } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|KI|")) {
           assignmentKing(row, column, kingObject[(i - 1)]);
+          break;
         } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|__|")) {
           System.out.println("There is nothing there.");
           break;

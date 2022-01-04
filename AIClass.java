@@ -1,4 +1,0 @@
-// AI Class
-class AIClass {
-
-}

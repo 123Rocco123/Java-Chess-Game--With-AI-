@@ -1,18 +1,30 @@
 class Pawn extends Pieces {
   @Override
   public boolean allowedMoves(int newRow, int newColumn) {
-    if ((newRow == (this.row + 1)) && (newColumn == column) && chessBoard[newRow][newColumn] == "|__|") {
-      this.row = newRow;
-      this.column = newColumn;
+      if ((newRow == (this.row + 1)) && (newColumn == column) && (chessBoard[newRow][newColumn]).equals("|__|")) {
+        this.row = newRow;
+        this.column = newColumn;
 
-      return true;
-    } else if ((newRow == (this.row + 1)) && ((newColumn == column + 1) || (newColumn == column - 1)) && chessBoard[newRow][newColumn] != "|__|") {
-      this.row = newRow;
-      this.column = newColumn;
-      
-      return true;
-    } else {
-      return false;
-    }
+        return true;
+      } else {
+        for (int i = 0; i < AIPieces.length; i++) {
+          // The else if statement below is used to take out the other teams pieces.
+          if (this.chessBoard[newRow][newColumn].equals(AIPieces[i])) {
+            if ((newRow == (this.row + 1)) && (newColumn == column + 1)) {
+              this.row = newRow;
+              this.column = newColumn;
+
+              return true;
+            } // The else if statement below is used to take out the other teams pieces.
+            else if ((newRow == (this.row + 1)) && (newColumn == column - 1)) {
+              this.row = newRow;
+              this.column = newColumn;
+
+              return true;
+            }
+          }
+        }
+      }
+    return false;
   }
 }
