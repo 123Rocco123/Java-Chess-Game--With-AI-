@@ -155,6 +155,7 @@ class mainFile {
     pawn8.setSpace(pawn8.row, pawn8.column);
   }
 
+  // The function is used to ask the player where they want to move the pawn to, and then checks if thats possible with the rules set in their class.
   public void assignmentPawn(int row, int column, Pawn ObjectName) {
     Scanner input = new Scanner(System.in);
 
@@ -175,6 +176,7 @@ class mainFile {
     }
   }
 
+  // The function is used to ask the player where they want to move the rook to, and then checks if thats possible with the rules set in their class.
   public void assignmentRook(int row, int column, rook ObjectName) {
     Scanner input = new Scanner(System.in);
 
@@ -195,6 +197,7 @@ class mainFile {
     }
   }
 
+  // The function is used to ask the player where they want to move the bishop to, and then checks if thats possible with the rules set in their class.
   public void assignmentBishop(int row, int column, bishop ObjectName) {
     Scanner input = new Scanner(System.in);
 
@@ -215,6 +218,7 @@ class mainFile {
     }
   }
 
+  // The function is used to ask the player where they want to move the knight to, and then checks if thats possible with the rules set in their class.
   public void assignmentKnight(int row, int column, knight ObjectName) {
     Scanner input = new Scanner(System.in);
 
