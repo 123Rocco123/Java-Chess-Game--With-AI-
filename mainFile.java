@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 class mainFile {
   boolean win = false;
-
   // The object below is used to store the board on which the players play on.
   Board BoardToPlayOn = new Board();
 
@@ -30,6 +29,28 @@ class mainFile {
   Queen queen1 = new Queen();
   King king1 = new King();
 
+  // The Objects below are used for the player's chess pieces.
+  Pawn pawn9 = new Pawn();
+  Pawn pawn10 = new Pawn();
+  Pawn pawn11 = new Pawn();
+  Pawn pawn12 = new Pawn();
+  Pawn pawn13 = new Pawn();
+  Pawn pawn14 = new Pawn();
+  Pawn pawn15 = new Pawn();
+  Pawn pawn16 = new Pawn();
+
+  rook rook3 = new rook();
+  rook rook4 = new rook();
+
+  knight knight3 = new knight();
+  knight knight4 = new knight();
+
+  bishop bishop3 = new bishop();
+  bishop bishop4 = new bishop();
+
+  Queen queen2 = new Queen();
+  King king2 = new King();
+
   // The boardOutput function is to just output the chess board to the player.
   public void boardOutput() {
       for (String[] row : BoardToPlayOn.chessBoard) {
@@ -53,6 +74,20 @@ class mainFile {
     rook2.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
     rook2.chessPieceLook("|R2|");
     rook2.setSpace(rook2.row, rook2.column);
+
+    // AI Team Assignment
+
+    rook3.rowAssignment(8);
+    rook3.columnAssignment(1);
+    rook3.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    rook3.chessPieceLook("|R3|");
+    rook3.setSpace(rook3.row, rook3.column);
+
+    rook4.rowAssignment(8);
+    rook4.columnAssignment(8);
+    rook4.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    rook4.chessPieceLook("|R4|");
+    rook4.setSpace(rook4.row, rook4.column);
   }
 
   // The function below are used to assign the bishops on the chessboard.
@@ -70,6 +105,20 @@ class mainFile {
     bishop2.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
     bishop2.chessPieceLook("|B2|");
     bishop2.setSpace(bishop2.row, bishop2.column);
+
+    // AI Team Assignment
+
+    bishop3.rowAssignment(8);
+    bishop3.columnAssignment(2);
+    bishop3.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    bishop3.chessPieceLook("|B3|");
+    bishop3.setSpace(bishop3.row, bishop3.column);
+
+    bishop4.rowAssignment(8);
+    bishop4.columnAssignment(7);
+    bishop4.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    bishop4.chessPieceLook("|B4|");
+    bishop4.setSpace(bishop4.row, bishop4.column);
   }
 
   // The function is used to setup the horses on the board.
@@ -87,6 +136,20 @@ class mainFile {
     knight2.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
     knight2.chessPieceLook("|K2|");
     knight2.setSpace(knight2.row, knight2.column);
+
+    // AI Team Assignment
+
+    knight3.rowAssignment(8);
+    knight3.columnAssignment(3);
+    knight3.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    knight3.chessPieceLook("|K3|");
+    knight3.setSpace(knight3.row, knight3.column);
+
+    knight4.rowAssignment(8);
+    knight4.columnAssignment(6);
+    knight4.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    knight4.chessPieceLook("|K4|");
+    knight4.setSpace(knight4.row, knight4.column);
   }
 
   // The function is used to setup the queen on the board.
@@ -98,6 +161,14 @@ class mainFile {
     queen1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
     queen1.chessPieceLook("|Q1|");
     queen1.setSpace(queen1.row, queen1.column);
+
+    // AI Team Assignment
+
+    queen2.rowAssignment(8);
+    queen2.columnAssignment(4);
+    queen2.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    queen2.chessPieceLook("|Q2|");
+    queen2.setSpace(queen2.row, queen2.column);
   }
 
   // The function is used to setup the king on the board.
@@ -109,6 +180,13 @@ class mainFile {
     king1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
     king1.chessPieceLook("|KI|");
     king1.setSpace(king1.row, king1.column);
+
+    // AI Team Assignment
+    king2.rowAssignment(8);
+    king2.columnAssignment(5);
+    king2.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    king2.chessPieceLook("|K2|");
+    king2.setSpace(king2.row, king2.column);
   }
 
   // The function below is used to store the assignment of the pawns.
@@ -161,6 +239,56 @@ class mainFile {
     pawn8.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
     pawn8.chessPieceLook("|P8|");
     pawn8.setSpace(pawn8.row, pawn8.column);
+
+    // AI Team Assignment
+
+    pawn9.rowAssignment(7);
+    pawn9.columnAssignment(1);
+    pawn9.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    pawn9.chessPieceLook("|PA|");
+    pawn9.setSpace(pawn9.row, pawn9.column);
+
+    pawn10.rowAssignment(7);
+    pawn10.columnAssignment(2);
+    pawn10.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    pawn10.chessPieceLook("|PB|");
+    pawn10.setSpace(pawn10.row, pawn10.column);
+
+    pawn11.rowAssignment(7);
+    pawn11.columnAssignment(3);
+    pawn11.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    pawn11.chessPieceLook("|PC|");
+    pawn11.setSpace(pawn11.row, pawn11.column);
+
+    pawn12.rowAssignment(7);
+    pawn12.columnAssignment(4);
+    pawn12.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    pawn12.chessPieceLook("|PD|");
+    pawn12.setSpace(pawn12.row, pawn12.column);
+
+    pawn13.rowAssignment(7);
+    pawn13.columnAssignment(5);
+    pawn13.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    pawn13.chessPieceLook("|PE|");
+    pawn13.setSpace(pawn13.row, pawn13.column);
+
+    pawn14.rowAssignment(7);
+    pawn14.columnAssignment(6);
+    pawn14.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    pawn14.chessPieceLook("|PF|");
+    pawn14.setSpace(pawn14.row, pawn14.column);
+
+    pawn15.rowAssignment(7);
+    pawn15.columnAssignment(7);
+    pawn15.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    pawn15.chessPieceLook("|PG|");
+    pawn15.setSpace(pawn15.row, pawn15.column);
+
+    pawn16.rowAssignment(7);
+    pawn16.columnAssignment(8);
+    pawn16.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
+    pawn16.chessPieceLook("|PH|");
+    pawn16.setSpace(pawn16.row, pawn16.column);
   }
 
   // The function is used to ask the player where they want to move the pawn to, and then checks if thats possible with the rules set in their class.
