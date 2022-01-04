@@ -30,8 +30,6 @@ class mainFile {
   Queen queen1 = new Queen();
   King king1 = new King();
 
-  Object[] chessPieces = {"|P1|"};
-
   // The boardOutput function is to just output the chess board to the player.
   public void boardOutput() {
       for (String[] row : BoardToPlayOn.chessBoard) {
@@ -42,6 +40,8 @@ class mainFile {
   // This function is used to assign the rooks to the chessboard.
      // This is the inital setup function.
   public void rookAssignment() {
+    // Player Team Assignment
+
     rook1.rowAssignment(1);
     rook1.columnAssignment(1);
     rook1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
@@ -57,6 +57,8 @@ class mainFile {
 
   // The function below are used to assign the bishops on the chessboard.
   public void bishopAssignment() {
+    // Player Team Assignment
+
     bishop1.rowAssignment(1);
     bishop1.columnAssignment(2);
     bishop1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
@@ -72,6 +74,8 @@ class mainFile {
 
   // The function is used to setup the horses on the board.
   public void knightAssignment() {
+    // Player Team Assignment
+
     knight1.rowAssignment(1);
     knight1.columnAssignment(3);
     knight1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
@@ -87,6 +91,8 @@ class mainFile {
 
   // The function is used to setup the queen on the board.
   public void queenAssignment() {
+    // Player Team Assignment
+
     queen1.rowAssignment(1);
     queen1.columnAssignment(4);
     queen1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
@@ -96,6 +102,8 @@ class mainFile {
 
   // The function is used to setup the king on the board.
   public void kingAssignment() {
+    // Player Team Assignment
+
     king1.rowAssignment(1);
     king1.columnAssignment(5);
     king1.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
