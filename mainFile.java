@@ -215,6 +215,26 @@ class mainFile {
     }
   }
 
+  public void assignmentKnight(int row, int column, knight ObjectName) {
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("Which row do you want to move the piece to? ");
+    int newRow = input.nextInt();
+
+    System.out.println("Which column do you want to move the piece to? ");
+    int newColumn = input.nextInt();
+
+    if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+      BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
+      BoardToPlayOn.chessBoard[row][column] = "|__|";
+
+      boardOutput();
+    } else {
+      System.out.println("Invalid Move");
+      assignmentKnight(row, column, ObjectName);
+    }
+  }
+
   // The move function is used to determine what object has to be checked to be moved when the player selects it.
   public void moveFunction() {
     Scanner input = new Scanner(System.in);
@@ -222,6 +242,7 @@ class mainFile {
     Pawn[] pawnObjects = {this.pawn1, this.pawn2, this.pawn3, this.pawn4, this.pawn5, this.pawn6, this.pawn7, this.pawn8};
     rook[] rookObjects = {this.rook1, this.rook2};
     bishop[] bishopObjects = {this.bishop1, this.bishop2};
+    knight[] knightObjects = {this.knight1, this.knight1};
 
     while (this.win == false) {
       System.out.println("What row is the piece located at? ");
@@ -237,6 +258,8 @@ class mainFile {
           assignmentRook(row, column, rookObjects[(i - 1)]);
         } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|B" + i + "|")) {
           assignmentBishop(row, column, bishopObjects[(i - 1)]);
+        } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|K" + i + "|")) {
+          assignmentKnight(row, column, knightObjects[(i - 1)]);
         }
       }
     }
