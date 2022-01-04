@@ -16,8 +16,6 @@ class bishop extends Pieces {
       } // Move down and to the right
       else if ((newRow == (this.row - i)) && (newColumn == this.column + i)) {
         return true;
-      } else {
-        return false;
       }
     }
     return false;
