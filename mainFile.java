@@ -260,17 +260,45 @@ class mainFile {
     }
   }
 
+  // The function is used to ask the player where they want to move the king to, and then checks if thats possible with the rules set in their class.
+  public void assignmentKing(int row, int column, King ObjectName) {
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("Which row do you want to move the piece to? ");
+    int newRow = input.nextInt();
+
+    System.out.println("Which column do you want to move the piece to? ");
+    int newColumn = input.nextInt();
+
+    if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+      BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
+      BoardToPlayOn.chessBoard[row][column] = "|__|";
+
+      boardOutput();
+    } else {
+      System.out.println("Invalid Move");
+      assignmentKing(row, column, ObjectName);
+    }
+  }
+
   // The move function is used to determine what object has to be checked to be moved when the player selects it.
   public void moveFunction() {
     Scanner input = new Scanner(System.in);
+
+    int round = 1;
 
     Pawn[] pawnObjects = {this.pawn1, this.pawn2, this.pawn3, this.pawn4, this.pawn5, this.pawn6, this.pawn7, this.pawn8};
     rook[] rookObjects = {this.rook1, this.rook2};
     bishop[] bishopObjects = {this.bishop1, this.bishop2};
     knight[] knightObjects = {this.knight1, this.knight1};
     Queen[] queenObject = {this.queen1};
+    King[] kingObject = {this.king1};
 
     while (this.win == false) {
+      System.out.println("\n---------------------------------");
+      System.out.println("            Round: " + round + "            ");
+      System.out.println("---------------------------------");
+
       System.out.println("What row is the piece located at? ");
       int row = input.nextInt();
 
@@ -288,8 +316,14 @@ class mainFile {
           assignmentKnight(row, column, knightObjects[(i - 1)]);
         } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|Q" + i + "|")) {
           assignmentQueen(row, column, queenObject[(i - 1)]);
+        } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|KI|")) {
+          assignmentKing(row, column, kingObject[(i - 1)]);
+        } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|__|")) {
+          System.out.println("There is nothing there.");
+          break;
         }
       }
+      round += 1;
     }
   }
 
