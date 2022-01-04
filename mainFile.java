@@ -155,7 +155,7 @@ class mainFile {
     pawn8.setSpace(pawn8.row, pawn8.column);
   }
 
-  public void assignment(int row, int column, Pawn ObjectName) {
+  public void assignmentPawn(int row, int column, Pawn ObjectName) {
     Scanner input = new Scanner(System.in);
 
     System.out.println("Which row do you want to move the piece to? ");
@@ -171,14 +171,36 @@ class mainFile {
       boardOutput();
     } else {
       System.out.println("Invalid Move");
-      assignment(row, column, ObjectName);
+      assignmentPawn(row, column, ObjectName);
+    }
+  }
+
+  public void assignmentRook(int row, int column, rook ObjectName) {
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("Which row do you want to move the piece to? ");
+    int newRow = input.nextInt();
+
+    System.out.println("Which column do you want to move the piece to? ");
+    int newColumn = input.nextInt();
+
+    if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+      BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
+      BoardToPlayOn.chessBoard[row][column] = "|__|";
+
+      boardOutput();
+    } else {
+      System.out.println("Invalid Move");
+      assignmentRook(row, column, ObjectName);
     }
   }
 
   // The move function is used to determine what object has to be checked to be moved when the player selects it.
   public void moveFunction() {
     Scanner input = new Scanner(System.in);
+
     Pawn[] pawnObjects = {this.pawn1, this.pawn2, this.pawn3, this.pawn4, this.pawn5, this.pawn6, this.pawn7, this.pawn8};
+    rook[] rookObjects = {this.rook1, this.rook2};
 
     while (this.win == false) {
       System.out.println("What row is the piece located at? ");
@@ -189,9 +211,9 @@ class mainFile {
 
       for (int i = 1; i < 9; i++) {
         if ((BoardToPlayOn.chessBoard[row][column]).equals("|P" + i + "|")) {
-          assignment(row, column, pawnObjects[(i - 1)]);
+          assignmentPawn(row, column, pawnObjects[(i - 1)]);
         } else if ((BoardToPlayOn.chessBoard[row][column]).equals("|R" + i + "|")) {
-          assignment(row, column, pawn1);
+          assignmentRook(row, column, rookObjects[(i - 1)]);
         }
       }
     }
