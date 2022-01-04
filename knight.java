@@ -55,7 +55,6 @@ class knight extends Pieces {
       }
     }
   }
-
     return false;
   }
 }
