@@ -1,4 +1,6 @@
 // Bishop class used to set the rules for bishop movemenet.
+   // The Bishop is missing:
+      // Attack Functionality
 
 class bishop extends Pieces {
   // The function override is used to set the function inside of the Pieces class to be specifically tailored to the bishop chess piece.

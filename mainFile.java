@@ -7,6 +7,8 @@ class mainFile {
   // The object below is used to store the board on which the players play on.
   Board BoardToPlayOn = new Board();
 
+  int round = 1;
+
   // The Objects below are used for the player's chess pieces.
   Pawn pawn1 = new Pawn();
   Pawn pawn2 = new Pawn();
@@ -308,7 +310,7 @@ class mainFile {
       boardOutput();
     } else {
       System.out.println("Invalid Move");
-      assignmentPawn(row, column, ObjectName);
+      moveFunction();
     }
   }
 
@@ -329,7 +331,7 @@ class mainFile {
       boardOutput();
     } else {
       System.out.println("Invalid Move");
-      assignmentRook(row, column, ObjectName);
+      moveFunction();
     }
   }
 
@@ -350,7 +352,7 @@ class mainFile {
       boardOutput();
     } else {
       System.out.println("Invalid Move");
-      assignmentBishop(row, column, ObjectName);
+      moveFunction();
     }
   }
 
@@ -371,7 +373,7 @@ class mainFile {
       boardOutput();
     } else {
       System.out.println("Invalid Move");
-      assignmentKnight(row, column, ObjectName);
+      moveFunction();
     }
   }
 
@@ -392,7 +394,7 @@ class mainFile {
       boardOutput();
     } else {
       System.out.println("Invalid Move");
-      assignmentQueen(row, column, ObjectName);
+      moveFunction();
     }
   }
 
@@ -413,15 +415,13 @@ class mainFile {
       boardOutput();
     } else {
       System.out.println("Invalid Move");
-      assignmentKing(row, column, ObjectName);
+      moveFunction();
     }
   }
 
   // The move function is used to determine what object has to be checked to be moved when the player selects it.
   public void moveFunction() {
     Scanner input = new Scanner(System.in);
-
-    int round = 1;
 
     Pawn[] pawnObjects = {this.pawn1, this.pawn2, this.pawn3, this.pawn4, this.pawn5, this.pawn6, this.pawn7, this.pawn8};
     rook[] rookObjects = {this.rook1, this.rook2};
@@ -432,7 +432,7 @@ class mainFile {
 
     while (this.win == false) {
       System.out.println("\n---------------------------------");
-      System.out.println("            Round: " + round + "            ");
+      System.out.println("            Round: " + this.round + "            ");
       System.out.println("---------------------------------");
 
       System.out.println("What row is the piece located at? ");
@@ -465,7 +465,7 @@ class mainFile {
           break;
         }
       }
-      round += 1;
+      this.round += 1;
     }
   }
 
