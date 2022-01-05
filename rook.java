@@ -43,6 +43,19 @@ class rook extends Pieces {
             this.column = newColumn;
 
             return true;
+          } // Left
+          else if (newColumn == this.column - i && newRow == this.row) {
+            System.out.println("Left");
+            for (int y = 0; y < this.column - newRow; y++) {
+              if (!(chessBoard[newRow][this.column - y].equals("|__|")) && !(chessBoard[newRow][newColumn - y].equals(chessPiece))) {
+                //System.out.println(chessBoard[newRow-y][newColumn]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
           }
         }
       }
