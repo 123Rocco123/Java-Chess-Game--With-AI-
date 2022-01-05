@@ -11,6 +11,8 @@ class Pieces {
                        "|B3|", "|B4|",
                        "|K3|", "|K4|",
                        "|Q2|", "|K2|"};
+  String[] Setters = {"    ", "Col1", "Col2", "Col3", "Col4", "Col5", "Col6", "Col7", "Col8",
+                      "Row1", "Row2", "Row3", "Row4", "Row5", "Row6", "Row7", "Row8"};
 
   // The function is used to assign the rows to the chessboard, by changing the instance variable in the class.
   public void rowAssignment(int rowNow) {
