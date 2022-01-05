@@ -2,9 +2,6 @@ class rook extends Pieces {
   // The override function below is used to set the rules on how the rook is allowed to move in the game.
   @Override
   public boolean allowedMoves(int newRow, int newColumn) {
-    //System.out.println(this.row);
-    //System.out.println(this.column);
-
     for (int i = 0; i < AIPieces.length; i++) {
       if (chessBoard[newRow][newColumn].equals("|__|") || chessBoard[newRow][newColumn].equals(AIPieces[i])) {
           // Up
@@ -16,6 +13,9 @@ class rook extends Pieces {
                 return false;
               }
             }
+            this.row = newRow;
+            this.column = newColumn;
+
             return true;
           } // Down
           else if (newColumn == column && newRow == row + i) {
@@ -26,13 +26,26 @@ class rook extends Pieces {
                 return false;
               }
             }
-            //System.out.println(newRow);
-            //System.out.println(newColumn);
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
+          } // Right
+          else if (newColumn == this.column + i && newRow == this.row) {
+            System.out.println("Right");
+            for (int y = 0; y < newColumn - this.column; y++) {
+              if (!(chessBoard[newRow][newColumn - y].equals("|__|")) && !(chessBoard[newRow][newColumn - y].equals(chessPiece))) {
+                //System.out.println(chessBoard[newRow-y][newColumn]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
             return true;
           }
         }
       }
-      System.out.println("test");
       return false;
     }
   }
