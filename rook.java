@@ -24,7 +24,7 @@ class rook extends Pieces {
             else if (newColumn == column && newRow == row + i) {
                 //System.out.println("Down");
                 for (int x = 1; x < newRow - row; x++) {
-                  System.out.println(chessBoard[row+x][newColumn]);
+                  //System.out.println(chessBoard[row+x][newColumn]);
                   if (!chessBoard[row + x][newColumn].equals("|__|")) {
                     //System.out.println(chessBoard[row+x][newColumn]);
                     return false;
@@ -49,7 +49,7 @@ class rook extends Pieces {
             return true;
           } // Left
           else if (newColumn == this.column - i && newRow == this.row) {
-            System.out.println("Left");
+            //System.out.println("Left");
             for (int y = 0; y < this.column - newRow; y++) {
               if (!(chessBoard[newRow][this.column - y].equals("|__|")) && !(chessBoard[newRow][newColumn - y].equals(chessPiece))) {
                 //System.out.println(chessBoard[newRow-y][newColumn]);
@@ -64,24 +64,28 @@ class rook extends Pieces {
         } // The else if statement below is used when the player wants to take the other teams chess pieces
         // Down and Enemy Chess Piece.
         else if (chessBoard[newRow][newColumn].equals(AIPieces[i])) {
-          for (int x = 1; x <= 8; x++) {
-            if (newColumn == this.column && newRow == row + x) {
-              for (int y = 1; y < (newRow - this.row); y++) {
-                System.out.println(chessBoard[newRow - y][newColumn]);
-                if (!(chessBoard[newRow - y][newColumn].equals("|__|"))) {
-                  return false;
+          for (int z = 0; z < 8; z++) {
+          if (newColumn == (this.column) && newRow == (this.row + z)) {
+            //System.out.println("Down Attack");
+            for (int x = 1; x <= 8; x++) {
+              if (newColumn == this.column && newRow == row + x) {
+                for (int y = 1; y < (newRow - this.row); y++) {
+                  System.out.println(chessBoard[newRow - y][newColumn]);
+                  if (!(chessBoard[newRow - y][newColumn].equals("|__|"))) {
+                    return false;
+                  }
                 }
-              }
-              this.row = newRow;
-              this.column = newColumn;
+                this.row = newRow;
+                this.column = newColumn;
 
-              return true;
+                return true;
+              }
             }
-          }
         } // Up and Enemy Chess Piece
-        else if (chessBoard[newRow][newColumn].equals(AIPieces[i])) {
+        else if (newColumn == column && newRow == row - z) {
+          //System.out.println("Up Attack");
           for (int x = 1; x <= 8; x++) {
-            if (newColumn == this.column && newRow == row + x) {
+            if (newColumn == this.column && newRow == row - x) {
               for (int y = 1; y < (this.row - newRow); y++) {
                 System.out.println(chessBoard[newRow + y][newColumn]);
                 if (!(chessBoard[newRow + y][newColumn].equals("|__|"))) {
@@ -95,12 +99,13 @@ class rook extends Pieces {
             }
           }
         } // Right Attack
-        else if (chessBoard[newRow][newColumn].equals(AIPieces[i])) {
+        else if (newColumn == column + z && newRow == row) {
+          //System.out.println("Right");
           for (int x = 1; x <= 8; x++) {
-            if (newColumn == this.column && newRow == row + x) {
+            if (newColumn == column + x && newRow == row) {
               for (int y = 1; y < newColumn - column; y++) {
-                System.out.println(chessBoard[newRow - y][newColumn]);
                 if (!(chessBoard[newRow][newColumn - y].equals("|__|"))) {
+                  System.out.println(chessBoard[newRow][newColumn -y]);
                   return false;
                 }
               }
@@ -108,8 +113,10 @@ class rook extends Pieces {
               this.column = newColumn;
 
               return true;
-            }
+              }
           }
+        }
+        }
         }
       }
       System.out.println("test");
