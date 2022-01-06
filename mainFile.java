@@ -319,10 +319,10 @@ class mainFile {
     Scanner input = new Scanner(System.in);
 
     System.out.println("Which row do you want to move the piece to? ");
-    int newRow = input.nextInt();
+    int newRow = input.nextInt(); //4
 
     System.out.println("Which column do you want to move the piece to? ");
-    int newColumn = input.nextInt();
+    int newColumn = input.nextInt(); //1
 
     if (ObjectName.allowedMoves(newRow, newColumn) == true) {
       BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];

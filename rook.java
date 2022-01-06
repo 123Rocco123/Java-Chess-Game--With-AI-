@@ -22,8 +22,10 @@ class rook extends Pieces {
             return true;
           } // Down
           else if (newColumn == column && newRow == row + i) {
-            //System.out.println("Down");
-            for (int y = 0; y < newRow - this.row; y++) {
+            System.out.println("Down");
+
+            for (int y = 0; y < newRow - row; y++) {
+              System.out.println(y);
               if (!(chessBoard[newRow - y][newColumn].equals("|__|")) && !(chessBoard[newRow - y][newColumn - y].equals(chessPiece))) {
                 //System.out.println(chessBoard[newRow-y][newColumn]);
                 return false;
@@ -60,8 +62,7 @@ class rook extends Pieces {
 
             return true;
           }
-        } // The else if statement below is used when the player wants to take the other teams chess pieces.
-
+        } // The else if statement below is used when the player wants to take the other teams chess pieces
         // Down and Enemy Chess Piece.
         else if (chessBoard[newRow][newColumn].equals(AIPieces[i])) {
           for (int x = 1; x <= 8; x++) {
@@ -69,6 +70,38 @@ class rook extends Pieces {
               for (int y = 1; y < (newRow - this.row); y++) {
                 System.out.println(chessBoard[newRow - y][newColumn]);
                 if (!(chessBoard[newRow - y][newColumn].equals("|__|"))) {
+                  return false;
+                }
+              }
+              this.row = newRow;
+              this.column = newColumn;
+
+              return true;
+            }
+          }
+        } // Up and Enemy Chess Piece
+        else if (chessBoard[newRow][newColumn].equals(AIPieces[i])) {
+          for (int x = 1; x <= 8; x++) {
+            if (newColumn == this.column && newRow == row + x) {
+              for (int y = 1; y < (this.row - newRow); y++) {
+                System.out.println(chessBoard[newRow + y][newColumn]);
+                if (!(chessBoard[newRow + y][newColumn].equals("|__|"))) {
+                  return false;
+                }
+              }
+              this.row = newRow;
+              this.column = newColumn;
+
+              return true;
+            }
+          }
+        } // Right Attack
+        else if (chessBoard[newRow][newColumn].equals(AIPieces[i])) {
+          for (int x = 1; x <= 8; x++) {
+            if (newColumn == this.column && newRow == row + x) {
+              for (int y = 1; y < newColumn - column; y++) {
+                System.out.println(chessBoard[newRow - y][newColumn]);
+                if (!(chessBoard[newRow][newColumn - y].equals("|__|"))) {
                   return false;
                 }
               }
