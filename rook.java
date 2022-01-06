@@ -70,7 +70,7 @@ class rook extends Pieces {
             for (int x = 1; x <= 8; x++) {
               if (newColumn == this.column && newRow == row + x) {
                 for (int y = 1; y < (newRow - this.row); y++) {
-                  System.out.println(chessBoard[newRow - y][newColumn]);
+                  //System.out.println(chessBoard[newRow - y][newColumn]);
                   if (!(chessBoard[newRow - y][newColumn].equals("|__|"))) {
                     return false;
                   }
@@ -87,7 +87,7 @@ class rook extends Pieces {
           for (int x = 1; x <= 8; x++) {
             if (newColumn == this.column && newRow == row - x) {
               for (int y = 1; y < (this.row - newRow); y++) {
-                System.out.println(chessBoard[newRow + y][newColumn]);
+                //System.out.println(chessBoard[newRow + y][newColumn]);
                 if (!(chessBoard[newRow + y][newColumn].equals("|__|"))) {
                   return false;
                 }
@@ -105,7 +105,24 @@ class rook extends Pieces {
             if (newColumn == column + x && newRow == row) {
               for (int y = 1; y < newColumn - column; y++) {
                 if (!(chessBoard[newRow][newColumn - y].equals("|__|"))) {
-                  System.out.println(chessBoard[newRow][newColumn -y]);
+                  //System.out.println(chessBoard[newRow][newColumn -y]);
+                  return false;
+                }
+              }
+              this.row = newRow;
+              this.column = newColumn;
+
+              return true;
+              }
+          }
+        } // Left Attack
+        else if (newColumn == column - z && newRow == row) {
+          //System.out.println("Right");
+          for (int x = 1; x <= 8; x++) {
+            if (newColumn == column - x && newRow == row) {
+              for (int y = 1; y < column - newColumn; y++) {
+                if (!(chessBoard[newRow][newColumn + y].equals("|__|"))) {
+                  //System.out.println(chessBoard[newRow][newColumn +y]);
                   return false;
                 }
               }
