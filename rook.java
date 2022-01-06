@@ -21,20 +21,19 @@ class rook extends Pieces {
 
             return true;
           } // Down
-          else if (newColumn == column && newRow == row + i) {
-            System.out.println("Down");
+            else if (newColumn == column && newRow == row + i) {
+                //System.out.println("Down");
+                for (int x = 1; x < newRow - row; x++) {
+                  System.out.println(chessBoard[row+x][newColumn]);
+                  if (!chessBoard[row + x][newColumn].equals("|__|")) {
+                    //System.out.println(chessBoard[row+x][newColumn]);
+                    return false;
+                  }
+                }
+                this.row = newRow;
+                this.column = newColumn;
 
-            for (int y = 0; y < newRow - row; y++) {
-              System.out.println(y);
-              if (!(chessBoard[newRow - y][newColumn].equals("|__|")) && !(chessBoard[newRow - y][newColumn - y].equals(chessPiece))) {
-                //System.out.println(chessBoard[newRow-y][newColumn]);
-                return false;
-              }
-            }
-            this.row = newRow;
-            this.column = newColumn;
-
-            return true;
+                return true;
           } // Right
           else if (newColumn == this.column + i && newRow == this.row) {
             //System.out.println("Right");
