@@ -60,6 +60,20 @@ class mainFile {
       }
   }
 
+  // The function below is used to check if the columns and rows that the user wants to move the chess piece to are in fact on the chessboard.
+     // This is used to not get the outOfBounds error when inputting a number greater than the number of rows of columns in the chessBoard used to play on. 
+  public boolean inputChecker(int setRow, int setColumn) {
+    if (setRow > 8 || setRow < 1) {
+      System.out.println("Invalid Row or Column inputted.");
+      return true;
+    } else if (setColumn > 8 || setColumn < 1) {
+      System.out.println("Invalid Row or Column inputted.");
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   // This function is used to assign the rooks to the chessboard.
      // This is the inital setup function.
   public void rookAssignment() {
@@ -303,13 +317,17 @@ class mainFile {
     System.out.println("Which column do you want to move the piece to? ");
     int newColumn = input.nextInt();
 
-    if (ObjectName.allowedMoves(newRow, newColumn) == true) {
-      BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
-      BoardToPlayOn.chessBoard[row][column] = "|__|";
+    if (inputChecker(newRow, newColumn) == false) {
+      if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+        BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
+        BoardToPlayOn.chessBoard[row][column] = "|__|";
 
-      boardOutput();
+        boardOutput();
+      } else {
+        System.out.println("Invalid Move");
+        moveFunction();
+      }
     } else {
-      System.out.println("Invalid Move");
       moveFunction();
     }
   }
@@ -324,13 +342,18 @@ class mainFile {
     System.out.println("Which column do you want to move the piece to? ");
     int newColumn = input.nextInt();
 
-    if (ObjectName.allowedMoves(newRow, newColumn) == true) {
-      BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
-      BoardToPlayOn.chessBoard[row][column] = "|__|";
+    if (inputChecker(newRow, newColumn) == false) {
+      System.out.println(inputChecker(row, column));
+      if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+        BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
+        BoardToPlayOn.chessBoard[row][column] = "|__|";
 
-      boardOutput();
+        boardOutput();
+      } else {
+        System.out.println("Invalid Move");
+        moveFunction();
+      }
     } else {
-      System.out.println("Invalid Move");
       moveFunction();
     }
   }
@@ -345,13 +368,17 @@ class mainFile {
     System.out.println("Which column do you want to move the piece to? ");
     int newColumn = input.nextInt();
 
-    if (ObjectName.allowedMoves(newRow, newColumn) == true) {
-      BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
-      BoardToPlayOn.chessBoard[row][column] = "|__|";
+    if (inputChecker(newRow, newColumn) == false) {
+      if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+        BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
+        BoardToPlayOn.chessBoard[row][column] = "|__|";
 
-      boardOutput();
+        boardOutput();
+      } else {
+        System.out.println("Invalid Move");
+        moveFunction();
+      }
     } else {
-      System.out.println("Invalid Move");
       moveFunction();
     }
   }
@@ -366,13 +393,17 @@ class mainFile {
     System.out.println("Which column do you want to move the piece to? ");
     int newColumn = input.nextInt();
 
-    if (ObjectName.allowedMoves(newRow, newColumn) == true) {
-      BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
-      BoardToPlayOn.chessBoard[row][column] = "|__|";
+    if (inputChecker(newRow, newColumn) == false) {
+      if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+        BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
+        BoardToPlayOn.chessBoard[row][column] = "|__|";
 
-      boardOutput();
+        boardOutput();
+      } else {
+        System.out.println("Invalid Move");
+        moveFunction();
+      }
     } else {
-      System.out.println("Invalid Move");
       moveFunction();
     }
   }
@@ -387,13 +418,17 @@ class mainFile {
     System.out.println("Which column do you want to move the piece to? ");
     int newColumn = input.nextInt();
 
-    if (ObjectName.allowedMoves(newRow, newColumn) == true) {
-      BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
-      BoardToPlayOn.chessBoard[row][column] = "|__|";
+    if (inputChecker(newRow, newColumn) == false) {
+      if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+        BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
+        BoardToPlayOn.chessBoard[row][column] = "|__|";
 
-      boardOutput();
+        boardOutput();
+      } else {
+        System.out.println("Invalid Move");
+        moveFunction();
+      }
     } else {
-      System.out.println("Invalid Move");
       moveFunction();
     }
   }
@@ -408,13 +443,17 @@ class mainFile {
     System.out.println("Which column do you want to move the piece to? ");
     int newColumn = input.nextInt();
 
-    if (ObjectName.allowedMoves(newRow, newColumn) == true) {
-      BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
-      BoardToPlayOn.chessBoard[row][column] = "|__|";
+    if (inputChecker(newRow, newColumn) == false) {
+      if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+        BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
+        BoardToPlayOn.chessBoard[row][column] = "|__|";
 
-      boardOutput();
+        boardOutput();
+      } else {
+        System.out.println("Invalid Move");
+        moveFunction();
+      }
     } else {
-      System.out.println("Invalid Move");
       moveFunction();
     }
   }
