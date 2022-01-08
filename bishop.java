@@ -84,9 +84,10 @@ class bishop extends Pieces {
             } // Up and to the Right.
             else if ((newRow == row - x) && (newColumn == column + x)) {
               System.out.println("Up and Right");
-              for (int z = 0; z <= 8; z++) {
-                if (!(chessBoard[newRow - z][newColumn + z].equals("|__|"))) {
-                  System.out.println(chessBoard[newRow - z][newColumn + x]);
+              for (int z = 1; z < (newRow - row); z++) {
+                //System.out.println(chessBoard[newRow - z][newColumn + z]);
+                if (!(chessBoard[newRow - z][newColumn - z].equals("|__|"))) {
+                  System.out.println(chessBoard[newRow - z][newColumn - x]);
                   return false;
                 }
               }
@@ -107,12 +108,13 @@ class bishop extends Pieces {
               this.column = newColumn;
 
               return true;
-            } // Down and to the Right.
+            } // Down and to the Right. (WORKS)
             else if ((newRow == row + x) && (newColumn == column + x)) {
               System.out.println("Down and Right");
-              for (int z = 0; z <= 8; z++) {
-                if (!(chessBoard[newRow + z][newColumn + z].equals("|__|"))) {
-                  System.out.println(chessBoard[newRow + z][newColumn + x]);
+              for (int z = 1; z < (newRow - row); z++) {
+                //System.out.println(chessBoard[newRow - z][newColumn + z]);
+                if (!(chessBoard[newRow - z][newColumn - z].equals("|__|"))) {
+                  System.out.println(chessBoard[newRow - z][newColumn - z]);
                   return false;
                 }
               }
