@@ -61,7 +61,7 @@ class mainFile {
   }
 
   // The function below is used to check if the columns and rows that the user wants to move the chess piece to are in fact on the chessboard.
-     // This is used to not get the outOfBounds error when inputting a number greater than the number of rows of columns in the chessBoard used to play on. 
+     // This is used to not get the outOfBounds error when inputting a number greater than the number of rows of columns in the chessBoard used to play on.
   public boolean inputChecker(int setRow, int setColumn) {
     if (setRow > 8 || setRow < 1) {
       System.out.println("Invalid Row or Column inputted.");
@@ -197,12 +197,12 @@ class mainFile {
     king1.chessPieceLook("|KI|");
     king1.setSpace(king1.row, king1.column);
 
-    // AI Team Assignment
+    /* AI Team Assignment
     king2.rowAssignment(8);
     king2.columnAssignment(5);
     king2.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
     king2.chessPieceLook("|K2|");
-    king2.setSpace(king2.row, king2.column);
+    king2.setSpace(king2.row, king2.column); */
   }
 
   // The function below is used to store the assignment of the pawns.
