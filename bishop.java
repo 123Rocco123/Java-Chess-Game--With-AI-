@@ -69,13 +69,57 @@ class bishop extends Pieces {
         if (chessBoard[newRow][newColumn].equals(AIPieces[i])) {
           for (int x = 1; x <= 8; x++) {
             // Up and To he Left
-            if (newRow == row - x && newColumn == column - x) {
+            if ((newRow == row - x) && (newColumn == column - x)) {
+              System.out.println("Up and Left");
               for (int z = 0; z <= 8; z++) {
                 if (!(chessBoard[newRow - z][newColumn - z].equals("|__|"))) {
                   System.out.println(chessBoard[newRow - z][newColumn - x]);
                   return false;
                 }
               }
+              this.row = newRow;
+              this.column = newColumn;
+
+              return true;
+            } // Up and to the Right.
+            else if ((newRow == row - x) && (newColumn == column + x)) {
+              System.out.println("Up and Right");
+              for (int z = 0; z <= 8; z++) {
+                if (!(chessBoard[newRow - z][newColumn + z].equals("|__|"))) {
+                  System.out.println(chessBoard[newRow - z][newColumn + x]);
+                  return false;
+                }
+              }
+              this.row = newRow;
+              this.column = newColumn;
+
+              return true;
+            } // Down and to the Left. (Works)
+            else if ((newRow == row + x) && (newColumn == column - x)) {
+              System.out.println("Down and Left");
+              for (int z = 1; z < ((newRow - row) - 1); z++) {
+                if (!(chessBoard[newRow - z][newColumn + z].equals("|__|"))) {
+                  System.out.println(chessBoard[newRow - z][newColumn + z]);
+                  return false;
+                }
+              }
+              this.row = newRow;
+              this.column = newColumn;
+
+              return true;
+            } // Down and to the Right.
+            else if ((newRow == row + x) && (newColumn == column + x)) {
+              System.out.println("Down and Right");
+              for (int z = 0; z <= 8; z++) {
+                if (!(chessBoard[newRow + z][newColumn + z].equals("|__|"))) {
+                  System.out.println(chessBoard[newRow + z][newColumn + x]);
+                  return false;
+                }
+              }
+              this.row = newRow;
+              this.column = newColumn;
+
+              return true;
             }
           }
         }
