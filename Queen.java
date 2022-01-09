@@ -2,7 +2,7 @@ class Queen extends Pieces {
   @Override
   public boolean allowedMoves(int newRow, int newColumn) {
     for (int i = 1; i <= 8; i++) {
-      // Move to a free space
+      // Move to a free space (Works)
       if (chessBoard[newRow][newColumn].equals("|__|")) {
         for (int x = 0; x <= 8; x++) {
           // If the move is down.
@@ -10,6 +10,18 @@ class Queen extends Pieces {
             for (int z = 1; z < (newRow - row); z++) {
               if (!(chessBoard[newRow - z][column].equals("|__|"))) {
                 System.out.println(chessBoard[newRow - z][column]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
+          } // Move up to a free space. (Works)
+          else if (newRow == row - x && newColumn == column) {
+            for (int z = 1; z < (row - newRow); z++) {
+              if (!(chessBoard[newRow + z][column].equals("|__|"))) {
+                System.out.println(chessBoard[newRow + z][column]);
                 return false;
               }
             }
