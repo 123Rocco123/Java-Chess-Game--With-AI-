@@ -197,12 +197,12 @@ class mainFile {
     king1.chessPieceLook("|KI|");
     king1.setSpace(king1.row, king1.column);
 
-    /* AI Team Assignment
+    // AI Team Assignment
     king2.rowAssignment(8);
     king2.columnAssignment(5);
     king2.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
     king2.chessPieceLook("|K2|");
-    king2.setSpace(king2.row, king2.column); */
+    king2.setSpace(king2.row, king2.column);
   }
 
   // The function below is used to store the assignment of the pawns.

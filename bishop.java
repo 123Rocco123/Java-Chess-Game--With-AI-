@@ -122,7 +122,7 @@ class bishop extends Pieces {
         }
       }
     }
-    System.out.println("test123");
+    //System.out.println("test123");
     return false;
   }
 }
