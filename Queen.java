@@ -41,6 +41,18 @@ class Queen extends Pieces {
             this.column = newColumn;
 
             return true;
+          } // Move right to a free space. (Works)
+          else if (newRow == row && newColumn == column + x) {
+            for (int z = 1; z < (newColumn - column); z++) {
+              if (!(chessBoard[newRow][newColumn - z].equals("|__|"))) {
+                System.out.println(chessBoard[newRow][newColumn - z]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
           }
         }
       } else {
