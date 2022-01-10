@@ -53,6 +53,54 @@ class Queen extends Pieces {
             this.column = newColumn;
 
             return true;
+          } // Move right and up to a free space. (Works)
+          else if (newRow == row - x && newColumn == column + x) {
+            for (int z = 1; z < (row - newRow); z++) {
+              if (!(chessBoard[newRow + z][newColumn - z].equals("|__|"))) {
+                System.out.println(chessBoard[newRow + z][newColumn - z]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
+          } // Move left and up to a free space. (Works)
+          else if (newRow == row - x && newColumn == column - x) {
+            for (int z = 1; z < (row - newRow); z++) {
+              if (!(chessBoard[newRow + z][newColumn + z].equals("|__|"))) {
+                System.out.println(chessBoard[newRow + z][newColumn + z]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
+          } // Move down and right to a free space. (Works)
+          else if (newRow == row + x && newColumn == column + x) {
+            for (int z = 1; z < (newRow - row); z++) {
+              if (!(chessBoard[newRow - z][newColumn - z].equals("|__|"))) {
+                System.out.println(chessBoard[newRow - z][newColumn - z]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
+          } // Move down and left to a free space. (Works)
+          else if (newRow == row + x && newColumn == column - x) {
+            for (int z = 1; z < (newRow - row); z++) {
+              if (!(chessBoard[newRow - z][newColumn + z].equals("|__|"))) {
+                System.out.println(chessBoard[newRow - z][newColumn + z]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
           }
         }
       } else {
