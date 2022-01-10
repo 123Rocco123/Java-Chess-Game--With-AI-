@@ -480,6 +480,11 @@ class mainFile {
       System.out.println("What column is the piece located at? ");
       int column = input.nextInt();
 
+      if (inputChecker(row, column) == true) {
+        moveFunction();
+        return;
+      }
+
       for (int i = 1; i < 9; i++) {
         if ((BoardToPlayOn.chessBoard[row][column]).equals("|P" + i + "|")) {
           assignmentPawn(row, column, pawnObjects[(i - 1)]);
