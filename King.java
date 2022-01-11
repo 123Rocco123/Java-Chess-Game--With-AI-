@@ -1,56 +1,92 @@
 class King extends Pieces {
   @Override
   public boolean allowedMoves(int newRow, int newColumn) {
-    // Move up and to the right
-    if ((newRow == (this.row + 1)) && (newColumn == this.column + 1) && this.chessBoard[(this.row + 1)][this.column + 1].equals("|__|")) {
-      this.row = newRow;
-      this.column = newColumn;
+    if (chessBoard[newRow][newColumn].equals("|__|")) {
+      // Move Down to free space.
+      if (newRow == row + 1 && newColumn == column) {
+        if (!(chessBoard[newRow][newColumn].equals("|__|"))) {
+          System.out.println(chessBoard[newRow][newColumn]);
+          return false;
+        } else {
+          column = newColumn;
+          row = newRow;
 
-      return true;
-    } // Move up and to the left
-    else if ((newRow == (this.row + 1)) && (newColumn == this.column - 1) && this.chessBoard[(this.row + 1)][this.column - 1].equals("|__|")) {
-      this.row = newRow;
-      this.column = newColumn;
+          return true;
+        }
+      } // Move Up to free space.
+      if (newRow == row - 1 && newColumn == column) {
+        if (!(chessBoard[newRow][newColumn].equals("|__|"))) {
+          return false;
+        } else {
+          column = newColumn;
+          row = newRow;
 
-      return true;
-    } // Move down and to the left
-    else if ((newRow == (this.row - 1)) && (newColumn == this.column - 1) && this.chessBoard[(this.row - 1)][this.column - 1].equals("|__|")) {
-      this.row = newRow;
-      this.column = newColumn;
+          return true;
+        }
+      } // Move Right to free space.
+      if (newRow == row && newColumn == column + 1) {
+        if (!(chessBoard[newRow][newColumn].equals("|__|"))) {
+          return false;
+        } else {
+          column = newColumn;
+          row = newRow;
 
-      return true;
-    } // Move down and to the right
-    else if ((newRow == (this.row - 1)) && (newColumn == this.column + 1) && this.chessBoard[(this.row - 1)][this.column + 1].equals("|__|")) {
-      this.row = newRow;
-      this.column = newColumn;
+          return true;
+        }
+      }  // Move Left to free space.
+      if (newRow == row && newColumn == column - 1) {
+        if (!(chessBoard[newRow][newColumn].equals("|__|"))) {
+          return false;
+        } else {
+          column = newColumn;
+          row = newRow;
 
-      return true;
-    } // Move right
-    else if (newColumn == this.column + 1 && newRow == this.row && this.chessBoard[(this.row)][this.column + 1].equals("|__|")) {
-      this.row = newRow;
-      this.column = newColumn;
+          return true;
+        }
+      } // Move Down and to the Right to free space.
+      if (newRow == row + 1 && newColumn == column + 1) {
+        if (!(chessBoard[newRow][newColumn].equals("|__|"))) {
+          return false;
+        } else {
+          column = newColumn;
+          row = newRow;
 
-      return true;
-    } // Move left
-    else if (newColumn == this.column - 1 && newRow == this.row && this.chessBoard[(this.row)][this.column - 1].equals("|__|")) {
-      this.row = newRow;
-      this.column = newColumn;
+          return true;
+        }
+      } // Move Down and to the Left to free space.
+      if (newRow == row + 1 && newColumn == column - 1) {
+        if (!(chessBoard[newRow][newColumn].equals("|__|"))) {
+          return false;
+        } else {
+          column = newColumn;
+          row = newRow;
 
-      return true;
-    } // Move up
-    else if (newRow == this.row && newColumn == this.column + 1 && this.chessBoard[(this.row)][this.column + 1].equals("|__|")) {
-      this.row = newRow;
-      this.column = newColumn;
+          return true;
+        }
+      } // Move Up and to the Left to free space.
+      if (newRow == row - 1 && newColumn == column - 1) {
+        if (!(chessBoard[newRow][newColumn].equals("|__|"))) {
+          return false;
+        } else {
+          column = newColumn;
+          row = newRow;
 
-      return true;
-    } // Move down
-    else if (newRow == this.row && newColumn == this.column - 1 && this.chessBoard[(this.row)][this.column - 1].equals("|__|")) {
-      this.row = newRow;
-      this.column = newColumn;
+          return true;
+        }
+      } // Move Up and to the Right to free space.
+      if (newRow == row - 1 && newColumn == column + 1) {
+        if (!(chessBoard[newRow][newColumn].equals("|__|"))) {
+          return false;
+        } else {
+          column = newColumn;
+          row = newRow;
 
-      return true;
+          return true;
+        }
+      }
     } else {
-      return false;
+      
     }
+    return false;
   }
 }
