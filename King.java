@@ -85,7 +85,60 @@ class King extends Pieces {
         }
       }
     } else {
-      
+      for (int i = 0; i < AIPieces.length; i++) {
+        if (chessBoard[newRow][newColumn].equals(AIPieces[i])) {
+          // Attack move down
+          if (newRow == row + 1 && newColumn == column) {
+            column = newColumn;
+            row = newRow;
+
+            return true;
+          } // Attack Up
+          else if (newRow == row - 1 && newColumn == column) {
+            column = newColumn;
+            row = newRow;
+
+            return true;
+          } // Attack Right
+          else if (newRow == row && newColumn == column + 1) {
+            column = newColumn;
+            row = newRow;
+
+            return true;
+          } // Attack Left
+          else if (newRow == row && newColumn == column - 1) {
+            column = newColumn;
+            row = newRow;
+
+            return true;
+          } // Attack Up Right
+          else if (newRow == row - 1 && newColumn == column + 1) {
+            column = newColumn;
+            row = newRow;
+
+            return true;
+          } // Attack Up Left
+          else if (newRow == row - 1 && newColumn == column - 1) {
+            column = newColumn;
+            row = newRow;
+
+            return true;
+          } // Attack Down Left
+          else if (newRow == row + 1 && newColumn == column - 1) {
+            column = newColumn;
+            row = newRow;
+
+            return true;
+          } // Attack Down Right
+          else if (newRow == row + 1 && newColumn == column + 1) {
+            column = newColumn;
+            row = newRow;
+
+            return true;
+          }
+        }
+      }
+      return false;
     }
     return false;
   }
