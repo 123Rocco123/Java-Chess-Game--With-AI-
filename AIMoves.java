@@ -1,6 +1,12 @@
 class AIMoves {
   String[][] chessBoard;
 
+  String[] AIPieces = {"|PA|", "|PB|", "|PC|", "|PD|", "|PE|", "|PF|", "|PG|", "|PH|",
+                       "|R3|", "|R4|",
+                       "|B3|", "|B4|",
+                       "|K3|", "|K4|",
+                       "|Q2|", "|Ki|"};
+
   public void chessBoardSetterFunc(String[][] boardToPLayOn) {
     this.chessBoard = boardToPLayOn;
   }
@@ -10,7 +16,12 @@ class AIMoves {
   public void defendFunction() {
     for (int i = 0; i < chessBoard.length; i++) {
       for (int x = 0; x < chessBoard.length; x++) {
-        System.out.println(chessBoard[i][x]);
+        for (int z = 0; z < AIPieces.length; z++) {
+          if (chessBoard[i][x].equals(AIPieces[z])) {
+            System.out.println(AIPieces[z]);
+            System.out.println(i + " " + x);
+          }
+        }
       }
     }
   }

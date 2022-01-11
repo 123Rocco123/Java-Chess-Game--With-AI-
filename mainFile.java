@@ -7,6 +7,8 @@ class mainFile {
   // The object below is used to store the board on which the players play on.
   Board BoardToPlayOn = new Board();
 
+  AIMoves testFunc = new AIMoves();
+
   int round = 1;
 
   // The Objects below are used for the player's chess pieces.
@@ -201,7 +203,7 @@ class mainFile {
     king2.rowAssignment(8);
     king2.columnAssignment(5);
     king2.chessBoardAssignemnt(BoardToPlayOn.chessBoard);
-    king2.chessPieceLook("|K2|");
+    king2.chessPieceLook("|Ki|");
     king2.setSpace(king2.row, king2.column);
   }
 
@@ -461,6 +463,9 @@ class mainFile {
   // The move function is used to determine what object has to be checked to be moved when the player selects it.
   public void moveFunction() {
     Scanner input = new Scanner(System.in);
+
+    //testFunc.chessBoardSetterFunc(BoardToPlayOn.chessBoard);
+    //testFunc.defendFunction();
 
     Pawn[] pawnObjects = {this.pawn1, this.pawn2, this.pawn3, this.pawn4, this.pawn5, this.pawn6, this.pawn7, this.pawn8};
     rook[] rookObjects = {this.rook1, this.rook2};

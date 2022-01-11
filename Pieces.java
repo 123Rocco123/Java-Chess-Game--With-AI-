@@ -10,7 +10,8 @@ class Pieces {
                        "|R3|", "|R4|",
                        "|B3|", "|B4|",
                        "|K3|", "|K4|",
-                       "|Q2|", "|K2|"};
+                       "|Q2|", "|Ki|"};
+
   String[] Setters = {"    ", "Col1", "Col2", "Col3", "Col4", "Col5", "Col6", "Col7", "Col8",
                       "Row1", "Row2", "Row3", "Row4", "Row5", "Row6", "Row7", "Row8"};
 

@@ -38,7 +38,7 @@ class rook extends Pieces {
           else if (newColumn == this.column + i && newRow == this.row) {
             //System.out.println("Right");
             for (int y = 0; y < newColumn - this.column; y++) {
-              if (!(chessBoard[newRow][newColumn - y].equals("|__|")) && !(chessBoard[newRow][newColumn - y].equals(chessPiece))) {
+              if (!(chessBoard[newRow][newColumn - y].equals("|__|"))) {
                 //System.out.println(chessBoard[newRow-y][newColumn]);
                 return false;
               }
@@ -50,9 +50,9 @@ class rook extends Pieces {
           } // Left
           else if (newColumn == this.column - i && newRow == this.row) {
             //System.out.println("Left");
-            for (int y = 0; y < this.column - newRow; y++) {
-              if (!(chessBoard[newRow][this.column - y].equals("|__|")) && !(chessBoard[newRow][newColumn - y].equals(chessPiece))) {
-                //System.out.println(chessBoard[newRow-y][newColumn]);
+            for (int y = 0; y < (this.column - newColumn); y++) {
+              if (!(chessBoard[newRow][newColumn + y].equals("|__|"))) {
+                //System.out.println(chessBoard[newRow][newColumn + y]);
                 return false;
               }
             }
