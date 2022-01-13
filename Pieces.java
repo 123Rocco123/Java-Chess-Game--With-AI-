@@ -12,6 +12,12 @@ class Pieces {
                        "|K3|", "|K4|",
                        "|Q2|", "|Ki|"};
 
+  String[] playerPieces = {"|P1|", "|P2|", "|P3|", "|P4|", "|P5|", "|P6|", "|P7|", "|P8|",
+                           "|R1|", "|R2|",
+                           "|B1|", "|B2|",
+                           "|K1|", "|K2|",
+                           "|Q1|", "|KI|"};
+
   String[] Setters = {"    ", "Col1", "Col2", "Col3", "Col4", "Col5", "Col6", "Col7", "Col8",
                       "Row1", "Row2", "Row3", "Row4", "Row5", "Row6", "Row7", "Row8"};
 
