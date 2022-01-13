@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.ArrayList;
 
 class AIMoves {
@@ -53,26 +54,36 @@ class AIMoves {
     pawnObjects.add(pawn16);
   }
 
-  public void pawnObjectTest(Pawn ObjectName) {
-    System.out.println(ObjectName.chessPiece);
+  public String[][] pawnObjectTest(Pawn ObjectName) {
+    if (ObjectName.allowedMovesAI((ObjectName.row - 1), (ObjectName.column)) == true) {
+      //System.out.println("test");
+
+      chessBoard[(ObjectName.row - 1)][ObjectName.column] = ObjectName.chessPiece;
+      chessBoard[ObjectName.row][ObjectName.column] = "|__|";
+
+      return chessBoard;
+    }
+
+    return chessBoard;
   }
 
   // The function below is used to defend against the players team's chess pieces.
      // The for loops are used to iterate throughout the ches board and see which pieces are the computers and which are the player's.
-  public void defendFunction() {
+  public String[][] defendFunction() {
     // The for loop is used to iterate throughout the entire chessBoard.
     for (int i = 0; i < chessBoard.length; i++) {
       for (int x = 0; x < chessBoard.length; x++) {
         // The second set of for loops below is used to iterate through the AIPieces to see which spot contains one of the AI's chess pieces.
         for (int z = 0; z < AIPieces.length; z++) {
           if (chessBoard[i][x].equals(AIPieces[z])) {
-            // The if statement below is used to check if the piece's is a pawn or not. 
+            // The if statement below is used to check if the piece's is a pawn or not.
             if (z <= 7) {
-              pawnObjectTest(pawnObjects.get(z));
+              return pawnObjectTest(pawnObjects.get(0));
             }
           }
         }
       }
     }
+    return chessBoard;
   }
 }
