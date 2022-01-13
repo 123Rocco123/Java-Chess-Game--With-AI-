@@ -464,8 +464,9 @@ class mainFile {
   public void moveFunction() {
     Scanner input = new Scanner(System.in);
 
-    //testFunc.chessBoardSetterFunc(BoardToPlayOn.chessBoard);
-    //testFunc.defendFunction();
+    testFunc.chessBoardSetterFunc(BoardToPlayOn.chessBoard);
+    testFunc.objectPawnSetter(pawn9, pawn10, pawn11, pawn12, pawn13, pawn14, pawn15, pawn16);
+    testFunc.defendFunction();
 
     Pawn[] pawnObjects = {this.pawn1, this.pawn2, this.pawn3, this.pawn4, this.pawn5, this.pawn6, this.pawn7, this.pawn8};
     rook[] rookObjects = {this.rook1, this.rook2};
