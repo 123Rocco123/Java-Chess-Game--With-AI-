@@ -2,9 +2,6 @@ import java.util.Arrays;
 import java.util.ArrayList;
 
 class AIMoves {
-  // The ArrayList contains the pawn objects.
-  ArrayList<Pawn> pawnObjects = new ArrayList<Pawn>();
-
   String[][] chessBoard;
 
   // The Objects below are used for the player's chess pieces.
@@ -28,6 +25,8 @@ class AIMoves {
 
   Queen queen2 = new Queen();
   King king2 = new King();
+
+  Pawn[] pawnObjects = {pawn9, pawn10, pawn11, pawn12, pawn13, pawn14, pawn15, pawn16};
 
   String[] AIPieces = {"|PA|", "|PB|", "|PC|", "|PD|", "|PE|", "|PF|", "|PG|", "|PH|",
                        "|R3|", "|R4|",
@@ -196,7 +195,13 @@ class AIMoves {
           if (chessBoard[i][x].equals(AIPieces[z])) {
             // The if statement below is used to check if the piece's is a pawn or not.
             if (z <= 7) {
-              return pawnObjectTest(pawn9);
+              if (pawnObjects[z].allowedMovesAI(((pawnObjects[z]).row - 1), (pawnObjects[z]).column) == true) {
+                //System.out.println("test");
+                chessBoard[pawnObjects[z].row][pawnObjects[z].column] = pawnObjects[z].chessPiece;
+                chessBoard[pawnObjects[z].row + 1][pawnObjects[z].column] = "|__|";
+
+                return chessBoard;
+              }
             }
           }
         }
