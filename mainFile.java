@@ -190,7 +190,7 @@ class mainFile {
         BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
         BoardToPlayOn.chessBoard[row][column] = "|__|";
 
-        boardOutput();
+        //boardOutput();
       } else {
         System.out.println("Invalid Move");
         moveFunction();
@@ -216,7 +216,7 @@ class mainFile {
         BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
         BoardToPlayOn.chessBoard[row][column] = "|__|";
 
-        boardOutput();
+        //boardOutput();
       } else {
         System.out.println("Invalid Move");
         moveFunction();
@@ -241,7 +241,7 @@ class mainFile {
         BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
         BoardToPlayOn.chessBoard[row][column] = "|__|";
 
-        boardOutput();
+        //boardOutput();
       } else {
         System.out.println("Invalid Move");
         moveFunction();
@@ -266,7 +266,7 @@ class mainFile {
         BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
         BoardToPlayOn.chessBoard[row][column] = "|__|";
 
-        boardOutput();
+        //boardOutput();
       } else {
         System.out.println("Invalid Move");
         moveFunction();
@@ -291,7 +291,7 @@ class mainFile {
         BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
         BoardToPlayOn.chessBoard[row][column] = "|__|";
 
-        boardOutput();
+        //boardOutput();
       } else {
         System.out.println("Invalid Move");
         moveFunction();
@@ -316,7 +316,7 @@ class mainFile {
         BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
         BoardToPlayOn.chessBoard[row][column] = "|__|";
 
-        boardOutput();
+        //boardOutput();
       } else {
         System.out.println("Invalid Move");
         moveFunction();
@@ -383,6 +383,8 @@ class mainFile {
           break;
         }
       }
+
+      boardOutput();
       this.round += 1;
     }
   }
