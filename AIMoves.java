@@ -195,7 +195,14 @@ class AIMoves {
           if (chessBoard[i][x].equals(AIPieces[z])) {
             // The if statement below is used to check if the piece's is a pawn or not.
             if (z <= 7) {
-              if (pawnObjects[z].allowedMovesAI(((pawnObjects[z]).row - 1), (pawnObjects[z]).column) == true) {
+              // Used to attack enemy pieces with the pawn.
+              if (pawnObjects[z].allowedMovesAI(((pawnObjects[z]).row - 1), (pawnObjects[z]).column + 1) == true) {
+                chessBoard[(pawnObjects[z]).row][(pawnObjects[z]).column] = (pawnObjects[z]).chessPiece;
+                chessBoard[pawnObjects[z].row + 1][pawnObjects[z].column - 1] = "|__|";
+
+                return chessBoard;
+                // Used to move forward. 
+              } else if (pawnObjects[z].allowedMovesAI(((pawnObjects[z]).row - 1), (pawnObjects[z]).column) == true) {
                 //System.out.println("test");
                 chessBoard[pawnObjects[z].row][pawnObjects[z].column] = pawnObjects[z].chessPiece;
                 chessBoard[pawnObjects[z].row + 1][pawnObjects[z].column] = "|__|";
