@@ -383,6 +383,7 @@ class mainFile {
           break;
         }
       }
+      BoardToPlayOn.chessBoard = testFunc.defendFunction();
 
       boardOutput();
       this.round += 1;

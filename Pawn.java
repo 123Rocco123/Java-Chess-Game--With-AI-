@@ -38,13 +38,13 @@ class Pawn extends Pieces {
         for (int i = 0; i < AIPieces.length; i++) {
           // The else if statement below is used to take out the other teams pieces, if they're on the right.
           if (this.chessBoard[newRow][newColumn].equals(AIPieces[i])) {
-            if ((newRow == (this.row + 1)) && (newColumn == column + 1)) {
+            if ((newRow == (this.row - 1)) && (newColumn == column + 1)) {
               this.row = newRow;
               this.column = newColumn;
 
               return true;
             } // The else if statement below is used to take out the other teams pieces, if they're located on the left.
-            else if ((newRow == (this.row + 1)) && (newColumn == column - 1)) {
+            else if ((newRow == (this.row - 1)) && (newColumn == column - 1)) {
               this.row = newRow;
               this.column = newColumn;
 

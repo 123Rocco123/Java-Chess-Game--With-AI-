@@ -170,39 +170,19 @@ class AIMoves {
     pawnAssignment();
   }
 
-  // This re-assigns the values of the instnace variables to the ones that were defined in the main class.
-  public void objectPawnSetter(Pawn pawn, Pawn pawn2, Pawn pawn3, Pawn pawn4, Pawn pawn5, Pawn pawn6, Pawn pawn7, Pawn pawn8) {
-    this.pawn9 = pawn;
-    this.pawn10 = pawn2;
-    this.pawn11 = pawn3;
-    this.pawn12 = pawn4;
-    this.pawn13 = pawn5;
-    this.pawn14 = pawn6;
-    this.pawn15 = pawn7;
-    this.pawn16 = pawn8;
-
-    pawnObjects.add(pawn9);
-    pawnObjects.add(pawn10);
-    pawnObjects.add(pawn11);
-    pawnObjects.add(pawn12);
-    pawnObjects.add(pawn13);
-    pawnObjects.add(pawn14);
-    pawnObjects.add(pawn15);
-    pawnObjects.add(pawn16);
-  }
-
   // The function below is used to move the AI's pieces forward.
   public String[][] pawnObjectTest(Pawn ObjectName) {
-    if (ObjectName.allowedMovesAI((ObjectName.row - 1), (ObjectName.column)) == true) {
-      System.out.println("test");
-
-      chessBoard[(ObjectName.row - 1)][ObjectName.column] = ObjectName.chessPiece;
-      chessBoard[ObjectName.row][ObjectName.column] = "|__|";
+    // Move the pawn forward by one spot.
+    if (ObjectName.allowedMovesAI((ObjectName.row - 1), ObjectName.column) == true) {
+      //System.out.println("test");
+      chessBoard[ObjectName.row][ObjectName.column] = ObjectName.chessPiece;
+      chessBoard[ObjectName.row + 1][ObjectName.column] = "|__|";
 
       return chessBoard;
+    } else {
+      //System.out.println("false");
+      return chessBoard;
     }
-
-    return chessBoard;
   }
 
   // The function below is used to defend against the players team's chess pieces.
@@ -216,8 +196,7 @@ class AIMoves {
           if (chessBoard[i][x].equals(AIPieces[z])) {
             // The if statement below is used to check if the piece's is a pawn or not.
             if (z <= 7) {
-              System.out.println(chessBoard[i][x]);
-              return pawnObjectTest(pawnObjects.get(z));
+              return pawnObjectTest(pawn9);
             }
           }
         }
