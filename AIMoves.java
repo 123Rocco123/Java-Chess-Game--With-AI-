@@ -172,9 +172,6 @@ class AIMoves {
   // The function below is used to defend against the players team's chess pieces.
      // The for loops are used to iterate throughout the ches board and see which pieces are the computers and which are the player's.
   public String[][] defendFunction(int movedRow, int movedColumn) {
-    // Used if no other move is possible / sensible.
-    boolean lastResort = false;
-
     // The for loop is used to iterate throughout the entire chessBoard.
     for (int i = 0; i < chessBoard.length; i++) {
       for (int x = 0; x < chessBoard.length; x++) {
@@ -198,14 +195,14 @@ class AIMoves {
 
                 return chessBoard;
               } // Move Up on the left of the pawn that the player just moved.
-              else if ((pawnObjects[z].allowedMovesAI(((pawnObjects[z]).row - 1), movedColumn - 1) == true) && lastResort == true) {
+              else if ((pawnObjects[z].allowedMovesAI(((pawnObjects[z]).row - 1), movedColumn - 1) == true)) {
                 //System.out.println("Move up on the left");
                 chessBoard[pawnObjects[z].row][pawnObjects[z].column] = pawnObjects[z].chessPiece;
                 chessBoard[pawnObjects[z].row + 1][pawnObjects[z].column] = "|__|";
 
                 return chessBoard;
               } // Move Up on the right of the pawn that the player just moved.
-              else if ((pawnObjects[z].allowedMovesAI(((pawnObjects[z]).row - 1), movedColumn + 1) == true) && lastResort == true) {
+              else if ((pawnObjects[z].allowedMovesAI(((pawnObjects[z]).row - 1), movedColumn + 1) == true)) {
                 //System.out.println("Move Up on the Right");
                 chessBoard[pawnObjects[z].row][pawnObjects[z].column] = pawnObjects[z].chessPiece;
                 chessBoard[pawnObjects[z].row + 1][pawnObjects[z].column] = "|__|";
