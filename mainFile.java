@@ -190,6 +190,8 @@ class mainFile {
         BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
         BoardToPlayOn.chessBoard[row][column] = "|__|";
 
+        BoardToPlayOn.chessBoard = testFunc.defendFunction(newRow, newColumn);
+
         //boardOutput();
       } else {
         System.out.println("Invalid Move");
@@ -383,7 +385,6 @@ class mainFile {
           break;
         }
       }
-      BoardToPlayOn.chessBoard = testFunc.defendFunction();
 
       boardOutput();
       this.round += 1;

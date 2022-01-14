@@ -169,24 +169,9 @@ class AIMoves {
     pawnAssignment();
   }
 
-  // The function below is used to move the AI's pieces forward.
-  public String[][] pawnObjectTest(Pawn ObjectName) {
-    // Move the pawn forward by one spot.
-    if (ObjectName.allowedMovesAI((ObjectName.row - 1), ObjectName.column) == true) {
-      //System.out.println("test");
-      chessBoard[ObjectName.row][ObjectName.column] = ObjectName.chessPiece;
-      chessBoard[ObjectName.row + 1][ObjectName.column] = "|__|";
-
-      return chessBoard;
-    } else {
-      //System.out.println("false");
-      return chessBoard;
-    }
-  }
-
   // The function below is used to defend against the players team's chess pieces.
      // The for loops are used to iterate throughout the ches board and see which pieces are the computers and which are the player's.
-  public String[][] defendFunction() {
+  public String[][] defendFunction(int movedRow, int movedColumn) {
     // The for loop is used to iterate throughout the entire chessBoard.
     for (int i = 0; i < chessBoard.length; i++) {
       for (int x = 0; x < chessBoard.length; x++) {
@@ -195,15 +180,30 @@ class AIMoves {
           if (chessBoard[i][x].equals(AIPieces[z])) {
             // The if statement below is used to check if the piece's is a pawn or not.
             if (z <= 7) {
-              // Used to attack enemy pieces with the pawn.
+              // Used to attack enemy pieces on the right with the pawn.
               if (pawnObjects[z].allowedMovesAI(((pawnObjects[z]).row - 1), (pawnObjects[z]).column + 1) == true) {
+                //System.out.println("Pawn Attack on the Right");
                 chessBoard[(pawnObjects[z]).row][(pawnObjects[z]).column] = (pawnObjects[z]).chessPiece;
                 chessBoard[pawnObjects[z].row + 1][pawnObjects[z].column - 1] = "|__|";
 
                 return chessBoard;
-                // Used to move forward. 
-              } else if (pawnObjects[z].allowedMovesAI(((pawnObjects[z]).row - 1), (pawnObjects[z]).column) == true) {
-                //System.out.println("test");
+                // Used to attack enemy pieces on the left with the pawn.
+              } else if (pawnObjects[z].allowedMovesAI(((pawnObjects[z]).row - 1), (pawnObjects[z]).column - 1) == true) {
+                //System.out.println("Pawn Attack on the Left");
+                chessBoard[pawnObjects[z].row][pawnObjects[z].column] = pawnObjects[z].chessPiece;
+                chessBoard[pawnObjects[z].row + 1][pawnObjects[z].column + 1] = "|__|";
+
+                return chessBoard;
+              } // Move Up on the left of the pawn that the player just moved.
+              else if (pawnObjects[z].allowedMovesAI(((pawnObjects[z]).row - 1), movedColumn - 1) == true) {
+                //System.out.println("Move up on the left");
+                chessBoard[pawnObjects[z].row][pawnObjects[z].column] = pawnObjects[z].chessPiece;
+                chessBoard[pawnObjects[z].row + 1][pawnObjects[z].column] = "|__|";
+
+                return chessBoard;
+              } // Move Up on the right of the pawn that the player just moved.
+              else if (pawnObjects[z].allowedMovesAI(((pawnObjects[z]).row - 1), movedColumn + 1) == true) {
+                //System.out.println("Move Up on the Right");
                 chessBoard[pawnObjects[z].row][pawnObjects[z].column] = pawnObjects[z].chessPiece;
                 chessBoard[pawnObjects[z].row + 1][pawnObjects[z].column] = "|__|";
 
