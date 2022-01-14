@@ -10,9 +10,9 @@ class rook extends Pieces {
           // Up
           if (newColumn == column && newRow == row - i) {
             //System.out.println("Up");
-            for (int x = 0; x < row - newRow; x++) {
-              if (!chessBoard[newRow - x][newColumn].equals("|__|")) {
-                //System.out.println(chessBoard[newRow-x][newColumn]);
+            for (int x = 1; x < row - newRow; x++) {
+              if (!chessBoard[row - x][newColumn].equals("|__|")) {
+                //System.out.println(chessBoard[row-x][newColumn]);
                 return false;
               }
             }
