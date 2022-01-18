@@ -169,6 +169,11 @@ class AIMoves {
     pawnAssignment();
   }
 
+  // The function is used to check all of the AI chess pieces and sees which of them will have the shortest path to taking the piece that the player just moved. 
+  public void possibleMoves() {
+
+  }
+
   // The function below is used to defend against the players team's chess pieces.
      // The for loops are used to iterate throughout the ches board and see which pieces are the computers and which are the player's.
   public String[][] defendFunction(int movedRow, int movedColumn) {
@@ -177,6 +182,7 @@ class AIMoves {
         for (int z = 0; z < playerPieces.length; z++) {
           if (chessBoard[i][x].equals(playerPieces[z])) {
             System.out.println(chessBoard[i][x]);
+
           }
         }
       }
