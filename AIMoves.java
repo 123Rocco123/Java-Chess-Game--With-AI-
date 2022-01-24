@@ -170,8 +170,10 @@ class AIMoves {
   }
 
   // Used in case there is no other better move
+     // It simply moves one of the pieces forward.
   public void defaultMove() {
     for (int i = 0; i < AIPieces.length; i++) {
+      // Pawns
       if (i <= 7) {
         for (int x = 0; x < pawnObjects.length; x++) {
           if (pawnObjects[x].allowedMovesAI(pawnObjects[x].row - 1, pawnObjects[x].column) == true) {
@@ -185,31 +187,37 @@ class AIMoves {
   }
 
   // The function is used to check all of the AI chess pieces and sees which of them will have the shortest path to taking the piece that the player just moved.
-  public void possibleMoves() {
-
+  public boolean attackMove() {
+    for (int i = 0; i < AIPieces.length; i++) {
+      // Pawns
+      //System.out.println(i);
+      if (i <= 7) {
+        for (int x = 0; x < pawnObjects.length; x++) {
+          //System.out.println(x);
+          if (pawnObjects[x].allowedMovesAI(pawnObjects[x].row - 1, pawnObjects[x].column - 1) == true) {
+            chessBoard[pawnObjects[x].row][pawnObjects[x].column] = pawnObjects[x].chessPiece;
+            chessBoard[pawnObjects[x].row + 1][pawnObjects[x].column + 1] = "|__|";
+            System.out.println("true");
+            return true;
+          } else if ((pawnObjects[x].column + 1 < 9) && pawnObjects[x].allowedMovesAI(pawnObjects[x].row - 1, pawnObjects[x].column + 1) == true) {
+            chessBoard[pawnObjects[x].row][pawnObjects[x].column] = pawnObjects[x].chessPiece;
+            chessBoard[pawnObjects[x].row + 1][pawnObjects[x].column - 1] = "|__|";
+            return true;
+          }
+        }
+      }
+    }
+    return false;
   }
 
   // The function below is used to defend against the players team's chess pieces.
      // The for loops are used to iterate throughout the ches board and see which pieces are the computers and which are the player's.
   public String[][] defendFunction(int movedRow, int movedColumn) {
-    int closestPieceRow = 0;
-    int closestPieceColumn = 0;
-    for (int i = 0; i < chessBoard.length; i++) {
-      for (int x = 0; x < chessBoard.length; x++) {
-        for (int z = 0; z < playerPieces.length; z++) {
-          if (chessBoard[i][x].equals(playerPieces[z])) {
-            // Used to find the chess piece which is closest to the AI pieces.
-               // Further development required.
-            if (i > closestPieceRow) {
-              closestPieceRow = i;
-              closestPieceColumn = x;
-            }
-          }
-        }
-      }
+    if (attackMove() == true) {
+      return chessBoard;
+    } else {
+      defaultMove();
+      return chessBoard;
     }
-    //System.out.println(closestPieceRow);
-    //System.out.println(closestPieceColumn);
-    return chessBoard;
   }
 }
