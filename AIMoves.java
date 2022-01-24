@@ -26,7 +26,7 @@ class AIMoves {
   Queen queen2 = new Queen();
   King king2 = new King();
 
-  Pawn[] pawnObjects = {pawn9, pawn10, pawn11, pawn12, pawn13, pawn14, pawn15, pawn16};
+  Pawn[] pawnObjects = {pawn9, pawn10, pawn12, pawn13, pawn14, pawn15, pawn16};
   rook[] rookObjects = {rook3, rook4};
   bishop[] bishopObjects = {bishop3, bishop4};
 
@@ -121,13 +121,13 @@ class AIMoves {
     pawn10.chessBoardAssignemnt(chessBoard);
     pawn10.chessPieceLook("|PB|");
     pawn10.setSpace(pawn10.row, pawn10.column);
-
+    /*
     pawn11.rowAssignment(7);
     pawn11.columnAssignment(3);
     pawn11.chessBoardAssignemnt(chessBoard);
     pawn11.chessPieceLook("|PC|");
     pawn11.setSpace(pawn11.row, pawn11.column);
-
+*/
     pawn12.rowAssignment(7);
     pawn12.columnAssignment(4);
     pawn12.chessBoardAssignemnt(chessBoard);
@@ -198,7 +198,7 @@ class AIMoves {
           if (pawnObjects[x].allowedMovesAI(pawnObjects[x].row - 1, pawnObjects[x].column - 1) == true) {
             chessBoard[pawnObjects[x].row][pawnObjects[x].column] = pawnObjects[x].chessPiece;
             chessBoard[pawnObjects[x].row + 1][pawnObjects[x].column + 1] = "|__|";
-            System.out.println("true");
+            //System.out.println("true");
             return true;
           } else if ((pawnObjects[x].column + 1 < 9) && pawnObjects[x].allowedMovesAI(pawnObjects[x].row - 1, pawnObjects[x].column + 1) == true) {
             chessBoard[pawnObjects[x].row][pawnObjects[x].column] = pawnObjects[x].chessPiece;
@@ -211,25 +211,25 @@ class AIMoves {
         for (int x = 0; x < rookObjects.length; x++) {
           for (int y = 1; y <= 7; y++) {
             // Possible attack up
-            if (rookObjects[x].row - y > 0 && rookObjects[x].allowedMovesAI(rookObjects[x].row - y, rookObjects[x].column)) {
+            if (rookObjects[x].row - y > 0 && rookObjects[x].allowedMovesAI(rookObjects[x].row - y, rookObjects[x].column) == true) {
               //System.out.println("up");
               chessBoard[rookObjects[x].row][rookObjects[x].column] = rookObjects[x].chessPiece;
               chessBoard[rookObjects[x].row + y][rookObjects[x].column] = "|__|";
               return true;
             } // Possible attack down
-            else if (rookObjects[x].row + y < 9 && rookObjects[x].allowedMovesAI(rookObjects[x].row + y, rookObjects[x].column)) {
+            else if (rookObjects[x].row + y < 9 && rookObjects[x].allowedMovesAI(rookObjects[x].row + y, rookObjects[x].column) == true) {
               //System.out.println("down");
               chessBoard[rookObjects[x].row][rookObjects[x].column] = rookObjects[x].chessPiece;
               chessBoard[rookObjects[x].row - y][rookObjects[x].column] = "|__|";
               return true;
             } // Possible attack left
-            else if (rookObjects[x].column - y > 0 && rookObjects[x].allowedMovesAI(rookObjects[x].row, rookObjects[x].column - y)) {
+            else if (rookObjects[x].column - y > 0 && rookObjects[x].allowedMovesAI(rookObjects[x].row, rookObjects[x].column - y) == true) {
               //System.out.println("left");
               chessBoard[rookObjects[x].row][rookObjects[x].column] = rookObjects[x].chessPiece;
               chessBoard[rookObjects[x].row][rookObjects[x].column + y] = "|__|";
               return true;
             } // Possible attack right
-            else if (rookObjects[x].column + y < 9 && rookObjects[x].allowedMovesAI(rookObjects[x].row, rookObjects[x].column + y)) {
+            else if (rookObjects[x].column + y < 9 && rookObjects[x].allowedMovesAI(rookObjects[x].row, rookObjects[x].column + y) == true) {
               //System.out.println("right");
               chessBoard[rookObjects[x].row][rookObjects[x].column] = rookObjects[x].chessPiece;
               chessBoard[rookObjects[x].row][rookObjects[x].column - y] = "|__|";
@@ -240,7 +240,29 @@ class AIMoves {
       } // AI for Bishops
       else if (i == 10 || i == 11) {
         for (int x = 0; x < bishopObjects.length; x++) {
-
+          for (int y = 1; y <= 7; y++) {
+            // Bishop Attack to Top Left
+            if (bishopObjects[x].row - y > 0 && bishopObjects[x].column - y > 0 && bishopObjects[x].allowedMovesAI(bishopObjects[x].row - y, bishopObjects[x].column - y) == true) {
+              chessBoard[bishopObjects[x].row][bishopObjects[x].column] = bishopObjects[x].chessPiece;
+              chessBoard[bishopObjects[x].row + y][bishopObjects[x].column + y] = "|__|";
+              return true;
+            } // Bishop Attack to Top Right
+            else if (bishopObjects[x].row - y > 0 && ((bishopObjects[x].column + y) < 9) && bishopObjects[x].allowedMovesAI(bishopObjects[x].row - y, bishopObjects[x].column + y) == true) {
+              chessBoard[bishopObjects[x].row][bishopObjects[x].column] = bishopObjects[x].chessPiece;
+              chessBoard[bishopObjects[x].row + y][bishopObjects[x].column - y] = "|__|";
+              return true;
+            } // Bishop Attack to Bottom Right
+            else if (bishopObjects[x].row + y < 9 && bishopObjects[x].column - y > 0 && bishopObjects[x].allowedMovesAI(bishopObjects[x].row + y, bishopObjects[x].column - y) == true) {
+              chessBoard[bishopObjects[x].row][bishopObjects[x].column] = bishopObjects[x].chessPiece;
+              chessBoard[bishopObjects[x].row - y][bishopObjects[x].column + y] = "|__|";
+              return true;
+            } // Bishop Attack to Bottom Left
+            else if (bishopObjects[x].row + y < 9 && bishopObjects[x].column + y < 9 && bishopObjects[x].allowedMovesAI(bishopObjects[x].row + y, bishopObjects[x].column + y) == true) {
+              chessBoard[bishopObjects[x].row][bishopObjects[x].column] = bishopObjects[x].chessPiece;
+              chessBoard[bishopObjects[x].row - y][bishopObjects[x].column - y] = "|__|";
+              return true;
+            }
+          }
         }
       }
     }
