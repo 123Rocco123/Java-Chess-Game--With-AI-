@@ -27,6 +27,7 @@ class AIMoves {
   King king2 = new King();
 
   Pawn[] pawnObjects = {pawn9, pawn10, pawn11, pawn12, pawn13, pawn14, pawn15, pawn16};
+  rook[] rookObjects = {rook3, rook4};
 
   String[] AIPieces = {"|PA|", "|PB|", "|PC|", "|PD|", "|PE|", "|PF|", "|PG|", "|PH|",
                        "|R3|", "|R4|",
@@ -203,6 +204,36 @@ class AIMoves {
             chessBoard[pawnObjects[x].row][pawnObjects[x].column] = pawnObjects[x].chessPiece;
             chessBoard[pawnObjects[x].row + 1][pawnObjects[x].column - 1] = "|__|";
             return true;
+          }
+        }
+      } else if (i == 8 || i == 9) {
+        for (int x = 0; x < rookObjects.length; x++) {
+          for (int y = 1; y <= 7; y++) {
+            // Possible attack up
+            if (rookObjects[x].row - y > 0 && rookObjects[x].allowedMovesAI(rookObjects[x].row - y, rookObjects[x].column)) {
+              System.out.println("up");
+              chessBoard[rookObjects[x].row][rookObjects[x].column] = rookObjects[x].chessPiece;
+              chessBoard[rookObjects[x].row + y][rookObjects[x].column] = "|__|";
+              return true;
+            } // Possible attack down
+            else if (rookObjects[x].row + y < 9 && rookObjects[x].allowedMovesAI(rookObjects[x].row + y, rookObjects[x].column)) {
+              System.out.println("down");
+              chessBoard[rookObjects[x].row][rookObjects[x].column] = rookObjects[x].chessPiece;
+              chessBoard[rookObjects[x].row - y][rookObjects[x].column] = "|__|";
+              return true;
+            } // Possible attack left
+            else if (rookObjects[x].column - y > 0 && rookObjects[x].allowedMovesAI(rookObjects[x].row, rookObjects[x].column - y)) {
+              System.out.println("left");
+              chessBoard[rookObjects[x].row][rookObjects[x].column] = rookObjects[x].chessPiece;
+              chessBoard[rookObjects[x].row][rookObjects[x].column + y] = "|__|";
+              return true;
+            } // Possible attack right
+            else if (rookObjects[x].column + y < 9 && rookObjects[x].allowedMovesAI(rookObjects[x].row, rookObjects[x].column + y)) {
+              System.out.println("right");
+              chessBoard[rookObjects[x].row][rookObjects[x].column] = rookObjects[x].chessPiece;
+              chessBoard[rookObjects[x].row][rookObjects[x].column - y] = "|__|";
+              return true;
+            }
           }
         }
       }
