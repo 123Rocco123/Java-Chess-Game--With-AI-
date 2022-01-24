@@ -169,6 +169,21 @@ class AIMoves {
     pawnAssignment();
   }
 
+  // Used in case there is no other better move
+  public void defaultMove() {
+    for (int i = 0; i < AIPieces.length; i++) {
+      if (i <= 7) {
+        for (int x = 0; x < pawnObjects.length; x++) {
+          if (pawnObjects[x].allowedMovesAI(pawnObjects[x].row - 1, pawnObjects[x].column) == true) {
+            chessBoard[pawnObjects[x].row][pawnObjects[x].column] = pawnObjects[x].chessPiece;
+            chessBoard[pawnObjects[x].row + 1][pawnObjects[x].column] = "|__|";
+            return;
+          }
+        }
+      }
+    }
+  }
+
   // The function is used to check all of the AI chess pieces and sees which of them will have the shortest path to taking the piece that the player just moved.
   public void possibleMoves() {
 
@@ -179,13 +194,12 @@ class AIMoves {
   public String[][] defendFunction(int movedRow, int movedColumn) {
     int closestPieceRow = 0;
     int closestPieceColumn = 0;
-
     for (int i = 0; i < chessBoard.length; i++) {
       for (int x = 0; x < chessBoard.length; x++) {
         for (int z = 0; z < playerPieces.length; z++) {
           if (chessBoard[i][x].equals(playerPieces[z])) {
             // Used to find the chess piece which is closest to the AI pieces.
-               // Further development required. 
+               // Further development required.
             if (i > closestPieceRow) {
               closestPieceRow = i;
               closestPieceColumn = x;
@@ -194,8 +208,8 @@ class AIMoves {
         }
       }
     }
-    System.out.println(closestPieceRow);
-    System.out.println(closestPieceColumn);
+    //System.out.println(closestPieceRow);
+    //System.out.println(closestPieceColumn);
     return chessBoard;
   }
 }
