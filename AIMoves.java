@@ -29,6 +29,7 @@ class AIMoves {
   Pawn[] pawnObjects = {pawn9, pawn10, pawn12, pawn13, pawn14, pawn15, pawn16};
   rook[] rookObjects = {rook3, rook4};
   bishop[] bishopObjects = {bishop3, bishop4};
+  knight[] knightObjects = {knight3, knight4};
 
   String[] AIPieces = {"|PA|", "|PB|", "|PC|", "|PD|", "|PE|", "|PF|", "|PG|", "|PH|",
                        "|R3|", "|R4|",
@@ -263,6 +264,11 @@ class AIMoves {
               return true;
             }
           }
+        }
+      } // AI for Knights
+      else if (i == 12 || i == 13) {
+        for (int x = 0; x < knightObjects.length; x++) {
+          
         }
       }
     }
