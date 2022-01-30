@@ -122,13 +122,13 @@ class AIMoves {
     pawn10.chessBoardAssignemnt(chessBoard);
     pawn10.chessPieceLook("|PB|");
     pawn10.setSpace(pawn10.row, pawn10.column);
-    /*
+
     pawn11.rowAssignment(7);
     pawn11.columnAssignment(3);
     pawn11.chessBoardAssignemnt(chessBoard);
     pawn11.chessPieceLook("|PC|");
     pawn11.setSpace(pawn11.row, pawn11.column);
-*/
+
     pawn12.rowAssignment(7);
     pawn12.columnAssignment(4);
     pawn12.chessBoardAssignemnt(chessBoard);
@@ -269,8 +269,21 @@ class AIMoves {
       else if (i == 12 || i == 13) {
         for (int x = 0; x < knightObjects.length; x++) {
           // Attack Up and to the Right
-          if (knightObjects[x].allowedMovesAI(knightObjects[x].row - 2 && knightObjects[x].column + 1)) {
-
+          if (knightObjects[x].allowedMovesAI(knightObjects[x].row - 2, knightObjects[x].column + 1)) {
+            chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
+            chessBoard[knightObjects[x].row + 2][knightObjects[x].column - 1] = "|__|";
+          } // Attack Up and to the Left
+          if (knightObjects[x].allowedMovesAI(knightObjects[x].row - 2, knightObjects[x].column - 1)) {
+            chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
+            chessBoard[knightObjects[x].row + 2][knightObjects[x].column + 1] = "|__|";
+          } // Attack Down and to the Left
+          if (knightObjects[x].allowedMovesAI(knightObjects[x].row + 2, knightObjects[x].column - 1)) {
+            chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
+            chessBoard[knightObjects[x].row - 2][knightObjects[x].column + 1] = "|__|";
+          } // Attack Down and to the Right
+          if (knightObjects[x].allowedMovesAI(knightObjects[x].row + 2, knightObjects[x].column + 1)) {
+            chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
+            chessBoard[knightObjects[x].row - 2][knightObjects[x].column - 1] = "|__|";
           }
         }
       }
