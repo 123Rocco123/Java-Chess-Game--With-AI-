@@ -187,6 +187,7 @@ class mainFile {
 
     if (inputChecker(newRow, newColumn) == false) {
       if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+        testFunc.AIChecker(BoardToPlayOn.chessBoard[newRow][newColumn]);
         BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
         BoardToPlayOn.chessBoard[row][column] = "|__|";
 
@@ -215,6 +216,7 @@ class mainFile {
     if (inputChecker(newRow, newColumn) == false) {
       System.out.println(inputChecker(row, column));
       if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+        testFunc.AIChecker(BoardToPlayOn.chessBoard[newRow][newColumn]);
         BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
         BoardToPlayOn.chessBoard[row][column] = "|__|";
 
@@ -240,6 +242,7 @@ class mainFile {
 
     if (inputChecker(newRow, newColumn) == false) {
       if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+        testFunc.AIChecker(BoardToPlayOn.chessBoard[newRow][newColumn]);
         BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
         BoardToPlayOn.chessBoard[row][column] = "|__|";
 
@@ -265,6 +268,7 @@ class mainFile {
 
     if (inputChecker(newRow, newColumn) == false) {
       if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+        testFunc.AIChecker(BoardToPlayOn.chessBoard[newRow][newColumn]);
         BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
         BoardToPlayOn.chessBoard[row][column] = "|__|";
 
@@ -290,6 +294,7 @@ class mainFile {
 
     if (inputChecker(newRow, newColumn) == false) {
       if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+        testFunc.AIChecker(BoardToPlayOn.chessBoard[newRow][newColumn]);
         BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
         BoardToPlayOn.chessBoard[row][column] = "|__|";
 
@@ -315,6 +320,7 @@ class mainFile {
 
     if (inputChecker(newRow, newColumn) == false) {
       if (ObjectName.allowedMoves(newRow, newColumn) == true) {
+        testFunc.AIChecker(BoardToPlayOn.chessBoard[newRow][newColumn]);
         BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
         BoardToPlayOn.chessBoard[row][column] = "|__|";
 

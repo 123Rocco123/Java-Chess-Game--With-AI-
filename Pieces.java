@@ -4,6 +4,9 @@ class Pieces {
   int column;
   String chessPiece;
 
+  // The instance variable below is used to check if the chess piece that is in question is dead or not. 
+  boolean dead = false;
+
   String[][] chessBoard;
 
   String[] AIPieces = {"|PA|", "|PB|", "|PC|", "|PD|", "|PE|", "|PF|", "|PG|", "|PH|",
