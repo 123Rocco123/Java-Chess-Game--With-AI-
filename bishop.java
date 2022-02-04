@@ -133,7 +133,7 @@ public boolean allowedMovesAI(int newRow, int newColumn) {
       for (int x = 1; x <= 8; x++) {
         // Up and to the Right
          if (newRow == (this.row - x) && newColumn == (this.column + x)) {
-           System.out.println("Up and Right");
+           //System.out.println("Up and Right Bishop");
            for (int z = 1; z < (this.row - newRow); z++) {
              if (!(chessBoard[newRow + z][newColumn - z]).equals("|__|")) {
                //System.out.println(chessBoard[newRow + z][newColumn - z]);

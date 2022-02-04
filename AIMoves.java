@@ -301,6 +301,7 @@ class AIMoves {
               return true;
             } // Bishop Attack to Top Right
             else if (bishopObjects[x].row - y > 0 && ((bishopObjects[x].column + y) < 9) && bishopObjects[x].allowedMovesAI(bishopObjects[x].row - y, bishopObjects[x].column + y) == true && bishopObjects[x].dead == false) {
+              System.out.println("Bishop");
               chessBoard[bishopObjects[x].row][bishopObjects[x].column] = bishopObjects[x].chessPiece;
               chessBoard[bishopObjects[x].row + y][bishopObjects[x].column - y] = "|__|";
               return true;
@@ -317,28 +318,33 @@ class AIMoves {
             }
           }
         }
-      } // AI for Knights
-      /*else if (i == 12 || i == 13) {
+      } // AI for Knights (Error)
+      else if (i == 12 || i == 13) {
         for (int x = 0; x < knightObjects.length; x++) {
           // Attack Up and to the Right
-          if (knightObjects[x].allowedMovesAI(knightObjects[x].row - 2, knightObjects[x].column + 1)) {
+          if ((knightObjects[x].row - 2) > 0 && (knightObjects[x].column + 1) < 9 && knightObjects[x].allowedMovesAI(knightObjects[x].row - 2, knightObjects[x].column + 1)) {
+            System.out.println("true");
             chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
             chessBoard[knightObjects[x].row + 2][knightObjects[x].column - 1] = "|__|";
+            return true;
           } // Attack Up and to the Left
-          if (knightObjects[x].allowedMovesAI(knightObjects[x].row - 2, knightObjects[x].column - 1)) {
+          if ((knightObjects[x].row - 2) > 0 && (knightObjects[x].column - 1) > 0 && knightObjects[x].allowedMovesAI(knightObjects[x].row - 2, knightObjects[x].column - 1)) {
             chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
             chessBoard[knightObjects[x].row + 2][knightObjects[x].column + 1] = "|__|";
+            return true;
           } // Attack Down and to the Left
-          if (knightObjects[x].allowedMovesAI(knightObjects[x].row + 2, knightObjects[x].column - 1)) {
+          if ((knightObjects[x].row + 2) < 9 && (knightObjects[x].column - 1) > 0 && knightObjects[x].allowedMovesAI(knightObjects[x].row + 2, knightObjects[x].column - 1)) {
             chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
             chessBoard[knightObjects[x].row - 2][knightObjects[x].column + 1] = "|__|";
+            return true;
           } // Attack Down and to the Right
-          if (knightObjects[x].allowedMovesAI(knightObjects[x].row + 2, knightObjects[x].column + 1)) {
+          if ((knightObjects[x].row + 2) < 9 && (knightObjects[x].column + 1) < 9 && knightObjects[x].allowedMovesAI(knightObjects[x].row + 2, knightObjects[x].column + 1)) {
             chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
             chessBoard[knightObjects[x].row - 2][knightObjects[x].column - 1] = "|__|";
+            return true;
           }
         }
-      } */
+      }
     }
     return false;
   }
