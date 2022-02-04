@@ -46,8 +46,8 @@ class AIMoves {
   // The function below is used to check if the player has taken one of the AI's pieces.
   public void AIChecker(String chessPiece) {
      for (int i = 0; i < AIPieces.length; i++) {
-       System.out.println(chessPiece);
-       System.out.println(i);
+       //System.out.println(chessPiece);
+       //System.out.println(i);
        if (chessPiece.equals("|__|")) {
          return;
        } else if (chessPiece.equals(AIPieces[i]) && i < 8) {
@@ -55,7 +55,7 @@ class AIMoves {
          for (int x = 0; x < pawnObjects.length; x++) {
            if ((pawnObjects[x].chessPiece).equals(chessPiece)) {
              pawnObjects[x].dead = true;
-             System.out.println("pawn");
+             //System.out.println("pawn");
              return;
            }
          }
@@ -63,7 +63,7 @@ class AIMoves {
          for (int x = 0; x < rookObjects.length; x++) {
            if ((rookObjects[x].chessPiece).equals(chessPiece)) {
              rookObjects[x].dead = true;
-             System.out.println("rook");
+             //System.out.println("rook");
              return;
            }
          }
@@ -71,7 +71,7 @@ class AIMoves {
          for (int x = 0; x < bishopObjects.length; x++) {
            if ((bishopObjects[x].chessPiece).equals(chessPiece)) {
              bishopObjects[x].dead = true;
-             System.out.println("bishop");
+             //System.out.println("bishop");
              return;
            }
          }
@@ -79,17 +79,17 @@ class AIMoves {
          for (int x = 0; x < knightObjects.length; x++) {
            if ((knightObjects[x].chessPiece).equals(chessPiece)) {
              knightObjects[x].dead = true;
-             System.out.println("knight");
+             //System.out.println("knight");
              return;
            }
          }
        } else if (i == 15) {
          queen2.dead = true;
-         System.out.println("king");
+         //System.out.println("king");
          return;
        } else if (i == 14) {
          king2.dead = true;
-         System.out.println("queen");
+         //System.out.println("queen");
          return;
        }
      }
@@ -303,7 +303,7 @@ class AIMoves {
               return true;
             } // Bishop Attack to Top Right
             else if (bishopObjects[x].row - y > 0 && ((bishopObjects[x].column + y) < 9) && bishopObjects[x].allowedMovesAI(bishopObjects[x].row - y, bishopObjects[x].column + y) == true && bishopObjects[x].dead == false) {
-              System.out.println("Bishop");
+              //System.out.println("Bishop");
               chessBoard[bishopObjects[x].row][bishopObjects[x].column] = bishopObjects[x].chessPiece;
               chessBoard[bishopObjects[x].row + y][bishopObjects[x].column - y] = "|__|";
               return true;
@@ -395,6 +395,54 @@ class AIMoves {
             chessBoard[queen2.row - y][queen2.column - y] = "|__|";
             return true;
           }
+        }
+      }
+      // AI For King
+      else if (i == 15) {
+        // Possible attack up
+        if (king2.row - 1 > 0 && king2.allowedMovesAI(king2.row - 1, king2.column) == true && king2.dead == false) {
+          //System.out.println("up");
+          chessBoard[king2.row][king2.column] = king2.chessPiece;
+          chessBoard[king2.row + 1][king2.column] = "|__|";
+          return true;
+        } // Possible attack down
+        else if (king2.row + 1 < 9 && king2.allowedMovesAI(king2.row + 1, king2.column) == true && king2.dead == false) {
+          //System.out.println("down");
+          chessBoard[king2.row][king2.column] = king2.chessPiece;
+          chessBoard[king2.row - 1][king2.column] = "|__|";
+          return true;
+        } // Possible attack left
+        else if (king2.column - 1 > 0 && king2.allowedMovesAI(king2.row, king2.column - 1) == true && king2.dead == false) {
+          //System.out.println("left");
+          chessBoard[king2.row][king2.column] = king2.chessPiece;
+          chessBoard[king2.row][king2.column + 1] = "|__|";
+          return true;
+        } // Possible attack right
+        else if (king2.column + 1 < 9 && king2.allowedMovesAI(king2.row, king2.column + 1) == true && king2.dead == false) {
+          //System.out.println("right");
+          chessBoard[king2.row][king2.column] = king2.chessPiece;
+          chessBoard[king2.row][king2.column - 1] = "|__|";
+          return true;
+        } // Bishop Attack to Top Left
+        else if (king2.row - 1 > 0 && king2.column - 1 > 0 && king2.allowedMovesAI(king2.row - 1, king2.column - 1) == true && king2.dead == false) {
+          chessBoard[king2.row][king2.column] = king2.chessPiece;
+          chessBoard[king2.row + 1][king2.column + 1] = "|__|";
+          return true;
+        } // Bishop Attack to Top Right
+        else if (king2.row - 1 > 0 && ((king2.column + 1) < 9) && king2.allowedMovesAI(king2.row - 1, king2.column + 1) == true && king2.dead == false) {
+          chessBoard[king2.row][king2.column] = king2.chessPiece;
+          chessBoard[king2.row + 1][king2.column - 1] = "|__|";
+          return true;
+        } // Bishop Attack to Bottom Right
+        else if (king2.row + 1 < 9 && king2.column - 1 > 0 && king2.allowedMovesAI(king2.row + 1, king2.column - 1) == true && king2.dead == false) {
+          chessBoard[king2.row][king2.column] = king2.chessPiece;
+          chessBoard[king2.row - 1][king2.column + 1] = "|__|";
+          return true;
+        } // Bishop Attack to Bottom Left
+        else if (king2.row + 1 < 9 && king2.column + 1 < 9 && king2.allowedMovesAI(king2.row + 1, king2.column + 1) == true && king2.dead == false) {
+          chessBoard[king2.row][king2.column] = king2.chessPiece;
+          chessBoard[king2.row - 1][king2.column - 1] = "|__|";
+          return true;
         }
       }
     }
