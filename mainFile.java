@@ -214,7 +214,7 @@ class mainFile {
     int newColumn = input.nextInt();
 
     if (inputChecker(newRow, newColumn) == false) {
-      System.out.println(inputChecker(row, column));
+      //System.out.println(inputChecker(row, column));
       if (ObjectName.allowedMoves(newRow, newColumn) == true) {
         testFunc.AIChecker(BoardToPlayOn.chessBoard[newRow][newColumn]);
         BoardToPlayOn.chessBoard[newRow][newColumn] = BoardToPlayOn.chessBoard[row][column];
