@@ -213,4 +213,111 @@ class Queen extends Pieces {
     }
     return false;
   }
+
+  public boolean allowedMovesAI(int newRow, int newColumn) {
+    for (int i = 0; i < playerPieces.length; i++) {
+      if (chessBoard[newRow][newColumn].equals(playerPieces[i])) {
+        for (int x = 0; x <= 8; x++) {
+          // If the move is down.
+          if (newRow == row + x && newColumn == column) {
+            for (int z = 1; z < (newRow - row); z++) {
+              if (!(chessBoard[newRow - z][column].equals("|__|"))) {
+                System.out.println(chessBoard[newRow - z][column]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
+          } // Move up to a free space. (Works)
+          else if (newRow == row - x && newColumn == column) {
+            for (int z = 1; z < (row - newRow); z++) {
+              if (!(chessBoard[newRow + z][column].equals("|__|"))) {
+                System.out.println(chessBoard[newRow + z][column]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
+          } // Move left to a free space. (Works)
+          else if (newRow == row && newColumn == column - x) {
+            for (int z = 1; z < (column - newColumn); z++) {
+              if (!(chessBoard[newRow][newColumn + z].equals("|__|"))) {
+                System.out.println(chessBoard[newRow][newColumn + z]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
+          } // Move right to a free space. (Works)
+          else if (newRow == row && newColumn == column + x) {
+            for (int z = 1; z < (newColumn - column); z++) {
+              if (!(chessBoard[newRow][newColumn - z].equals("|__|"))) {
+                System.out.println(chessBoard[newRow][newColumn - z]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
+          } // Move right and up to a free space. (Works)
+          else if (newRow == row - x && newColumn == column + x) {
+            for (int z = 1; z < (row - newRow); z++) {
+              if (!(chessBoard[newRow + z][newColumn - z].equals("|__|"))) {
+                System.out.println(chessBoard[newRow + z][newColumn - z]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
+          } // Move left and up to a free space. (Works)
+          else if (newRow == row - x && newColumn == column - x) {
+            for (int z = 1; z < (row - newRow); z++) {
+              if (!(chessBoard[newRow + z][newColumn + z].equals("|__|"))) {
+                System.out.println(chessBoard[newRow + z][newColumn + z]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
+          } // Move down and right to a free space. (Works)
+          else if (newRow == row + x && newColumn == column + x) {
+            for (int z = 1; z < (newRow - row); z++) {
+              if (!(chessBoard[newRow - z][newColumn - z].equals("|__|"))) {
+                System.out.println(chessBoard[newRow - z][newColumn - z]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
+          } // Move down and left to a free space. (Works)
+          else if (newRow == row + x && newColumn == column - x) {
+            for (int z = 1; z < (newRow - row); z++) {
+              if (!(chessBoard[newRow - z][newColumn + z].equals("|__|"))) {
+                System.out.println(chessBoard[newRow - z][newColumn + z]);
+                return false;
+              }
+            }
+            this.row = newRow;
+            this.column = newColumn;
+
+            return true;
+          }
+        }
+      }
+    }
+    return false;
+  }
 }
