@@ -94,10 +94,10 @@ class bishop extends Pieces {
                return true;
              } // Down and to the Left.
             else if ((newRow == row + x) && (newColumn == column - x)) {
-              System.out.println("Down and Left");
+              //System.out.println("Down and Left");
               for (int z = 1; z < ((newRow - row) - 1); z++) {
                 if (!(chessBoard[newRow - z][newColumn + z].equals("|__|"))) {
-                  System.out.println(chessBoard[newRow - z][newColumn + z]);
+                  //System.out.println(chessBoard[newRow - z][newColumn + z]);
                   return false;
                 }
               }
@@ -106,11 +106,11 @@ class bishop extends Pieces {
               return true;
             } // Down and to the Right.
             else if ((newRow == row + x) && (newColumn == column + x)) {
-              System.out.println("Down and Right");
+              //System.out.println("Down and Right");
               for (int z = 1; z < (newRow - row); z++) {
                 //System.out.println(chessBoard[newRow - z][newColumn + z]);
                 if (!(chessBoard[newRow - z][newColumn - z].equals("|__|"))) {
-                  System.out.println(chessBoard[newRow - z][newColumn - z]);
+                  //System.out.println(chessBoard[newRow - z][newColumn - z]);
                   return false;
                 }
               }
@@ -157,7 +157,7 @@ public boolean allowedMovesAI(int newRow, int newColumn) {
            return true;
          } // Down and to the Left.
         else if ((newRow == row + x) && (newColumn == column - x)) {
-          System.out.println("Down and Left");
+          //System.out.println("Down and Left");
           for (int z = 1; z < ((newRow - row) - 1); z++) {
             if (!(chessBoard[newRow - z][newColumn + z].equals("|__|"))) {
               System.out.println(chessBoard[newRow - z][newColumn + z]);
