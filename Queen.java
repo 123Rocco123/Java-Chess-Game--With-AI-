@@ -9,7 +9,7 @@ class Queen extends Pieces {
           if (newRow == row + x && newColumn == column) {
             for (int z = 1; z < (newRow - row); z++) {
               if (!(chessBoard[newRow - z][column].equals("|__|"))) {
-                System.out.println(chessBoard[newRow - z][column]);
+                //System.out.println(chessBoard[newRow - z][column]);
                 return false;
               }
             }
@@ -21,7 +21,7 @@ class Queen extends Pieces {
           else if (newRow == row - x && newColumn == column) {
             for (int z = 1; z < (row - newRow); z++) {
               if (!(chessBoard[newRow + z][column].equals("|__|"))) {
-                System.out.println(chessBoard[newRow + z][column]);
+                //System.out.println(chessBoard[newRow + z][column]);
                 return false;
               }
             }
@@ -33,7 +33,7 @@ class Queen extends Pieces {
           else if (newRow == row && newColumn == column - x) {
             for (int z = 1; z < (column - newColumn); z++) {
               if (!(chessBoard[newRow][newColumn + z].equals("|__|"))) {
-                System.out.println(chessBoard[newRow][newColumn + z]);
+                //System.out.println(chessBoard[newRow][newColumn + z]);
                 return false;
               }
             }
@@ -45,7 +45,7 @@ class Queen extends Pieces {
           else if (newRow == row && newColumn == column + x) {
             for (int z = 1; z < (newColumn - column); z++) {
               if (!(chessBoard[newRow][newColumn - z].equals("|__|"))) {
-                System.out.println(chessBoard[newRow][newColumn - z]);
+                //System.out.println(chessBoard[newRow][newColumn - z]);
                 return false;
               }
             }
@@ -57,7 +57,7 @@ class Queen extends Pieces {
           else if (newRow == row - x && newColumn == column + x) {
             for (int z = 1; z < (row - newRow); z++) {
               if (!(chessBoard[newRow + z][newColumn - z].equals("|__|"))) {
-                System.out.println(chessBoard[newRow + z][newColumn - z]);
+                //System.out.println(chessBoard[newRow + z][newColumn - z]);
                 return false;
               }
             }
@@ -69,7 +69,7 @@ class Queen extends Pieces {
           else if (newRow == row - x && newColumn == column - x) {
             for (int z = 1; z < (row - newRow); z++) {
               if (!(chessBoard[newRow + z][newColumn + z].equals("|__|"))) {
-                System.out.println(chessBoard[newRow + z][newColumn + z]);
+                //System.out.println(chessBoard[newRow + z][newColumn + z]);
                 return false;
               }
             }
@@ -81,7 +81,7 @@ class Queen extends Pieces {
           else if (newRow == row + x && newColumn == column + x) {
             for (int z = 1; z < (newRow - row); z++) {
               if (!(chessBoard[newRow - z][newColumn - z].equals("|__|"))) {
-                System.out.println(chessBoard[newRow - z][newColumn - z]);
+                //System.out.println(chessBoard[newRow - z][newColumn - z]);
                 return false;
               }
             }
@@ -93,7 +93,7 @@ class Queen extends Pieces {
           else if (newRow == row + x && newColumn == column - x) {
             for (int z = 1; z < (newRow - row); z++) {
               if (!(chessBoard[newRow - z][newColumn + z].equals("|__|"))) {
-                System.out.println(chessBoard[newRow - z][newColumn + z]);
+                //System.out.println(chessBoard[newRow - z][newColumn + z]);
                 return false;
               }
             }
@@ -113,7 +113,7 @@ class Queen extends Pieces {
               if (newRow == row + b && newColumn == column) {
                 for (int z = 1; z < (newRow - row); z++) {
                   if (!(chessBoard[newRow - z][column].equals("|__|"))) {
-                    System.out.println(chessBoard[newRow - z][column]);
+                    //System.out.println(chessBoard[newRow - z][column]);
                     return false;
                   }
                 }
@@ -125,7 +125,7 @@ class Queen extends Pieces {
               else if (newRow == row - b && newColumn == column) {
                 for (int z = 1; z < (row - newRow); z++) {
                   if (!(chessBoard[newRow + z][column].equals("|__|"))) {
-                    System.out.println(chessBoard[newRow + z][column]);
+                    //System.out.println(chessBoard[newRow + z][column]);
                     return false;
                   }
                 }
@@ -137,7 +137,7 @@ class Queen extends Pieces {
               else if (newRow == row && newColumn == column - b) {
                 for (int z = 1; z < (column - newColumn); z++) {
                   if (!(chessBoard[newRow][newColumn + z].equals("|__|"))) {
-                    System.out.println(chessBoard[newRow][newColumn + z]);
+                    //System.out.println(chessBoard[newRow][newColumn + z]);
                     return false;
                   }
                 }
@@ -149,7 +149,7 @@ class Queen extends Pieces {
               else if (newRow == row && newColumn == column + b) {
                 for (int z = 1; z < (newColumn - column); z++) {
                   if (!(chessBoard[newRow][newColumn - z].equals("|__|"))) {
-                    System.out.println(chessBoard[newRow][newColumn - z]);
+                    //System.out.println(chessBoard[newRow][newColumn - z]);
                     return false;
                   }
                 }
@@ -173,7 +173,7 @@ class Queen extends Pieces {
               else if (newRow == row - b && newColumn == column - b) {
                 for (int z = 1; z < (row - newRow); z++) {
                   if (!(chessBoard[newRow + z][newColumn + z].equals("|__|"))) {
-                    System.out.println(chessBoard[newRow + z][newColumn + z]);
+                    //System.out.println(chessBoard[newRow + z][newColumn + z]);
                     return false;
                   }
                 }
@@ -185,7 +185,7 @@ class Queen extends Pieces {
               else if (newRow == row + b && newColumn == column + b) {
                 for (int z = 1; z < (newRow - row); z++) {
                   if (!(chessBoard[newRow - z][newColumn - z].equals("|__|"))) {
-                    System.out.println(chessBoard[newRow - z][newColumn - z]);
+                    //System.out.println(chessBoard[newRow - z][newColumn - z]);
                     return false;
                   }
                 }
@@ -197,7 +197,7 @@ class Queen extends Pieces {
               else if (newRow == row + b && newColumn == column - b) {
                 for (int z = 1; z < (newRow - row); z++) {
                   if (!(chessBoard[newRow - z][newColumn + z].equals("|__|"))) {
-                    System.out.println(chessBoard[newRow - z][newColumn + z]);
+                    //System.out.println(chessBoard[newRow - z][newColumn + z]);
                     return false;
                   }
                 }
@@ -222,7 +222,7 @@ class Queen extends Pieces {
           if (newRow == row + x && newColumn == column) {
             for (int z = 1; z < (newRow - row); z++) {
               if (!(chessBoard[newRow - z][column].equals("|__|"))) {
-                System.out.println(chessBoard[newRow - z][column]);
+                //System.out.println(chessBoard[newRow - z][column]);
                 return false;
               }
             }
@@ -234,7 +234,7 @@ class Queen extends Pieces {
           else if (newRow == row - x && newColumn == column) {
             for (int z = 1; z < (row - newRow); z++) {
               if (!(chessBoard[newRow + z][column].equals("|__|"))) {
-                System.out.println(chessBoard[newRow + z][column]);
+                //System.out.println(chessBoard[newRow + z][column]);
                 return false;
               }
             }
@@ -246,7 +246,7 @@ class Queen extends Pieces {
           else if (newRow == row && newColumn == column - x) {
             for (int z = 1; z < (column - newColumn); z++) {
               if (!(chessBoard[newRow][newColumn + z].equals("|__|"))) {
-                System.out.println(chessBoard[newRow][newColumn + z]);
+                //System.out.println(chessBoard[newRow][newColumn + z]);
                 return false;
               }
             }
@@ -258,7 +258,7 @@ class Queen extends Pieces {
           else if (newRow == row && newColumn == column + x) {
             for (int z = 1; z < (newColumn - column); z++) {
               if (!(chessBoard[newRow][newColumn - z].equals("|__|"))) {
-                System.out.println(chessBoard[newRow][newColumn - z]);
+                //System.out.println(chessBoard[newRow][newColumn - z]);
                 return false;
               }
             }
@@ -270,7 +270,7 @@ class Queen extends Pieces {
           else if (newRow == row - x && newColumn == column + x) {
             for (int z = 1; z < (row - newRow); z++) {
               if (!(chessBoard[newRow + z][newColumn - z].equals("|__|"))) {
-                System.out.println(chessBoard[newRow + z][newColumn - z]);
+                //System.out.println(chessBoard[newRow + z][newColumn - z]);
                 return false;
               }
             }
@@ -282,7 +282,7 @@ class Queen extends Pieces {
           else if (newRow == row - x && newColumn == column - x) {
             for (int z = 1; z < (row - newRow); z++) {
               if (!(chessBoard[newRow + z][newColumn + z].equals("|__|"))) {
-                System.out.println(chessBoard[newRow + z][newColumn + z]);
+                //System.out.println(chessBoard[newRow + z][newColumn + z]);
                 return false;
               }
             }
@@ -294,7 +294,7 @@ class Queen extends Pieces {
           else if (newRow == row + x && newColumn == column + x) {
             for (int z = 1; z < (newRow - row); z++) {
               if (!(chessBoard[newRow - z][newColumn - z].equals("|__|"))) {
-                System.out.println(chessBoard[newRow - z][newColumn - z]);
+                //System.out.println(chessBoard[newRow - z][newColumn - z]);
                 return false;
               }
             }
@@ -306,7 +306,7 @@ class Queen extends Pieces {
           else if (newRow == row + x && newColumn == column - x) {
             for (int z = 1; z < (newRow - row); z++) {
               if (!(chessBoard[newRow - z][newColumn + z].equals("|__|"))) {
-                System.out.println(chessBoard[newRow - z][newColumn + z]);
+                //System.out.println(chessBoard[newRow - z][newColumn + z]);
                 return false;
               }
             }
