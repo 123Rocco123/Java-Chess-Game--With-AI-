@@ -293,6 +293,35 @@ class AIMoves {
           }
         }
       }
+      // Knight
+      else if (i == 12 || i == 13) {
+        for (int x = 0; x < knightObjects.length; x++) {
+          // Up and to the Left
+          if (knightObjects[x].allowedMovesAI(knightObjects[x].row - 2, knightObjects[x].column - 1)) {
+            chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
+            chessBoard[knightObjects[x].row + 2][knightObjects[x].column + 1] = "|__|";
+            return;
+          }
+          // Up and to the Right
+          if (knightObjects[x].allowedMovesAI(knightObjects[x].row - 2, knightObjects[x].column + 1)) {
+            chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
+            chessBoard[knightObjects[x].row + 2][knightObjects[x].column - 1] = "|__|";
+            return;
+          }
+          // Down and to the Left
+          if (knightObjects[x].allowedMovesAI(knightObjects[x].row + 2, knightObjects[x].column - 1)) {
+            chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
+            chessBoard[knightObjects[x].row - 2][knightObjects[x].column + 1] = "|__|";
+            return;
+          }
+          // Down and to the Right
+          if (knightObjects[x].allowedMovesAI(knightObjects[x].row + 2, knightObjects[x].column + 1)) {
+            chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
+            chessBoard[knightObjects[x].row - 2][knightObjects[x].column - 1] = "|__|";
+            return;
+          }
+        }
+      }
     }
   }
 
