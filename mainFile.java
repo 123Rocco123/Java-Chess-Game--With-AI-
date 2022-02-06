@@ -344,6 +344,7 @@ class mainFile {
     }
   }
 
+  // The function below is used to add the AI's team to the chessBoard.
   public void AITeamSetter() {
     testFunc.chessBoardSetterFunc(BoardToPlayOn.chessBoard);
 
