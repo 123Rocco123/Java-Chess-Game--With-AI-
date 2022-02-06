@@ -346,6 +346,56 @@ class AIMoves {
           }
         }
       }
+      // Queen & King
+      else if (i == 14 || i == 15) {
+        for (int x = 0; x < queenObject.length; x++) {
+          // Move Up
+          if (queenObject[x].allowedMovesAI(queenObject[x].row - 1, queenObject[x].column) == true) {
+            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
+            chessBoard[queenObject[x].row + 1][queenObject[x].column] = "|__|";
+            return;
+          } // Move Down
+          else if (queenObject[x].allowedMovesAI(queenObject[x].row + 1, queenObject[x].column) == true) {
+            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
+            chessBoard[queenObject[x].row - 1][queenObject[x].column] = "|__|";
+            return;
+          } // Move Left
+          else if (queenObject[x].allowedMovesAI(queenObject[x].row, queenObject[x].column - 1) == true) {
+            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
+            chessBoard[queenObject[x].row][queenObject[x].column + 1] = "|__|";
+            return;
+          } // Move Right
+          else if (queenObject[x].allowedMovesAI(queenObject[x].row, queenObject[x].column + 1) == true) {
+            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
+            chessBoard[queenObject[x].row][queenObject[x].column - 1] = "|__|";
+            return;
+          }
+          // Move Up and Left
+          if (queenObject[x].allowedMovesAI(queenObject[x].row - 1, queenObject[x].column - 1)) {
+            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
+            chessBoard[queenObject[x].row + 1][queenObject[x].column + 1] = "|__|";
+            return;
+          }
+          // Move Up and Right
+          else if (queenObject[x].allowedMovesAI(queenObject[x].row - 1, queenObject[x].column + 1)) {
+            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
+            chessBoard[queenObject[x].row + 1][queenObject[x].column - 1] = "|__|";
+            return;
+          }
+          // Move Down and Left
+          else if (queenObject[x].allowedMovesAI(queenObject[x].row + 1, queenObject[x].column - 1)) {
+            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
+            chessBoard[queenObject[x].row - 1][queenObject[x].column + 1] = "|__|";
+            return;
+          }
+          // Move Down and Right
+          else if (queenObject[x].allowedMovesAI(queenObject[x].row + 1, queenObject[x].column + 1)) {
+            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
+            chessBoard[queenObject[x].row - 1][queenObject[x].column - 1] = "|__|";
+            return;
+          }
+        }
+      }
     }
   }
 
