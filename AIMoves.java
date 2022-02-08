@@ -224,6 +224,11 @@ class AIMoves {
     pawnAssignment();
   }
 
+  // The function below is executed when the King chess piece is under attack.
+  public void kingDefendFunc() {
+    
+  }
+
   // Used in case there is no other better move
      // It simply moves one of the pieces forward.
   public void defaultMove() {
