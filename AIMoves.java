@@ -4,6 +4,8 @@ import java.util.ArrayList;
 class AIMoves {
   String[][] chessBoard;
 
+  boolean kingSafe = true;
+
   // The Objects below are used for the player's chess pieces.
   Pawn pawn9 = new Pawn();
   Pawn pawn10 = new Pawn();
@@ -230,11 +232,13 @@ class AIMoves {
     for (int i = 1; i < 8; i++) {
       // Used to check all of the player pieces.
       for (int x = 0; x < playerPieces.length; x++) {
-        // Attacks from above and to the left
-        if (this.chessBoard[king2.row - x][king2.column - x]) {
+        // Attacks from above and to the left (Bishops Only)
+        if ((this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[11])) {
+          this.kingSafe = false;
           // If the king is on a row thats less than 8, then it will move down.
           if (king2.row < 8) {
             king2.row += 1;
+
           } else {
             king2.row -= 1;
           }
