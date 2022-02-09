@@ -238,9 +238,20 @@ class AIMoves {
           // If the king is on a row thats less than 8, then it will move down.
           if (king2.row < 8) {
             king2.row += 1;
-
+            kingDefendFunc();
           } else {
             king2.row -= 1;
+            kingDefendFunc();
+          }
+        } // Attack from the top Right (Bishops Only)
+        else if ((this.chessBoard[king2.row - x][king2.column + x]).equals(playerPieces[10]) || (this.chessBoard[king2.row - x][king2.column + x]).equals(playerPieces[11])) {
+          // If the king is on a row thats less than 8, then it will move down.
+          if (king2.row < 8) {
+            king2.row += 1;
+            kingDefendFunc();
+          } else {
+            king2.row -= 1;
+            kingDefendFunc();
           }
         }
       }
