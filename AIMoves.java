@@ -310,25 +310,25 @@ class AIMoves {
       else if (i == 10 || i == 11) {
         for (int x = 0; x < bishopObjects.length; x++) {
           // Move Up and Left
-          if (bishopObjects[x].allowedMovesAI(bishopObjects[x].row - 1, bishopObjects[x].column - 1)) {
+          if (bishopObjects[x].row - 1 > 0 && bishopObjects[x].column - 1 > 0 && bishopObjects[x].allowedMovesAI(bishopObjects[x].row - 1, bishopObjects[x].column - 1)) {
             chessBoard[bishopObjects[x].row][bishopObjects[x].column] = bishopObjects[x].chessPiece;
             chessBoard[bishopObjects[x].row + 1][bishopObjects[x].column + 1] = "|__|";
             return;
           }
           // Move Up and Right
-          else if (bishopObjects[x].allowedMovesAI(bishopObjects[x].row - 1, bishopObjects[x].column + 1)) {
+          else if (bishopObjects[x].row - 1 > 0 && bishopObjects[x].column + 1 < 9 && bishopObjects[x].allowedMovesAI(bishopObjects[x].row - 1, bishopObjects[x].column + 1)) {
             chessBoard[bishopObjects[x].row][bishopObjects[x].column] = bishopObjects[x].chessPiece;
             chessBoard[bishopObjects[x].row + 1][bishopObjects[x].column - 1] = "|__|";
             return;
           }
           // Move Down and Left
-          else if (bishopObjects[x].allowedMovesAI(bishopObjects[x].row + 1, bishopObjects[x].column - 1)) {
+          else if (bishopObjects[x].row + 1 < 9 && bishopObjects[x].column - 1 > 0 && bishopObjects[x].allowedMovesAI(bishopObjects[x].row + 1, bishopObjects[x].column - 1)) {
             chessBoard[bishopObjects[x].row][bishopObjects[x].column] = bishopObjects[x].chessPiece;
             chessBoard[bishopObjects[x].row - 1][bishopObjects[x].column + 1] = "|__|";
             return;
           }
           // Move Down and Right
-          else if (bishopObjects[x].allowedMovesAI(bishopObjects[x].row + 1, bishopObjects[x].column + 1)) {
+          else if (bishopObjects[x].row + 1 < 9 && bishopObjects[x].column + 1 < 9 && bishopObjects[x].allowedMovesAI(bishopObjects[x].row + 1, bishopObjects[x].column + 1)) {
             chessBoard[bishopObjects[x].row][bishopObjects[x].column] = bishopObjects[x].chessPiece;
             chessBoard[bishopObjects[x].row - 1][bishopObjects[x].column - 1] = "|__|";
             return;
