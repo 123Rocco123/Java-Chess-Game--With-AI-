@@ -284,22 +284,22 @@ class AIMoves {
       else if (i == 8 || i == 9) {
         for (int x = 0; x < rookObjects.length; x++) {
           // Move Up
-          if (rookObjects[x].allowedMovesAI(rookObjects[x].row - 1, rookObjects[x].column) == true) {
+          if (rookObjects[x].row - 1 > 0 && rookObjects[x].allowedMovesAI(rookObjects[x].row - 1, rookObjects[x].column) == true) {
             chessBoard[rookObjects[x].row][rookObjects[x].column] = rookObjects[x].chessPiece;
             chessBoard[rookObjects[x].row + 1][rookObjects[x].column] = "|__|";
             return;
           } // Move Down
-          else if (rookObjects[x].allowedMovesAI(rookObjects[x].row + 1, rookObjects[x].column) == true) {
+          else if (rookObjects[x].row + 1 < 9 && rookObjects[x].allowedMovesAI(rookObjects[x].row + 1, rookObjects[x].column) == true) {
             chessBoard[rookObjects[x].row][rookObjects[x].column] = rookObjects[x].chessPiece;
             chessBoard[rookObjects[x].row - 1][rookObjects[x].column] = "|__|";
             return;
           } // Move Left
-          else if (rookObjects[x].allowedMovesAI(rookObjects[x].row, rookObjects[x].column - 1) == true) {
+          else if (rookObjects[x].column - 1 > 0 && rookObjects[x].allowedMovesAI(rookObjects[x].row, rookObjects[x].column - 1) == true) {
             chessBoard[rookObjects[x].row][rookObjects[x].column] = rookObjects[x].chessPiece;
             chessBoard[rookObjects[x].row][rookObjects[x].column + 1] = "|__|";
             return;
           } // Move Right
-          else if (rookObjects[x].allowedMovesAI(rookObjects[x].row, rookObjects[x].column + 1) == true) {
+          else if (rookObjects[x].column + 1 < 9 && rookObjects[x].allowedMovesAI(rookObjects[x].row, rookObjects[x].column + 1) == true) {
             chessBoard[rookObjects[x].row][rookObjects[x].column] = rookObjects[x].chessPiece;
             chessBoard[rookObjects[x].row][rookObjects[x].column - 1] = "|__|";
             return;
