@@ -253,8 +253,16 @@ class AIMoves {
             king2.row -= 1;
             kingDefendFunc();
           }
+        } // Attack from the Bottom Left (Bishop Only)
+        else if ((this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[11])) {
+          if (king2.row < 8) {
+            kingDefendFunc();
+          } else {
+            king2.row -= 1;
+            kingDefendFunc();
+          }
         }
-      }
+      } this.kingSafe = true;
     }
   }
 
@@ -331,104 +339,102 @@ class AIMoves {
       else if (i == 12 || i == 13) {
         for (int x = 0; x < knightObjects.length; x++) {
           // Up and to the Left (2 Up)
-          if (knightObjects[x].allowedMovesAI(knightObjects[x].row - 2, knightObjects[x].column - 1)) {
+          if (knightObjects[x].row - 2 > 0 && knightObjects[x].column - 1 > 0 && knightObjects[x].allowedMovesAI(knightObjects[x].row - 2, knightObjects[x].column - 1)) {
             chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
             chessBoard[knightObjects[x].row + 2][knightObjects[x].column + 1] = "|__|";
             return;
           }
           // Up and to the Right (2 Up)
-          else if (knightObjects[x].allowedMovesAI(knightObjects[x].row - 2, knightObjects[x].column + 1)) {
+          else if (knightObjects[x].row - 2 > 0 && knightObjects[x].column + 1 < 9 && knightObjects[x].allowedMovesAI(knightObjects[x].row - 2, knightObjects[x].column + 1)) {
             chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
             chessBoard[knightObjects[x].row + 2][knightObjects[x].column - 1] = "|__|";
             return;
           }
           // Down and to the Left (2 Down)
-          else if (knightObjects[x].allowedMovesAI(knightObjects[x].row + 2, knightObjects[x].column - 1)) {
+          else if (knightObjects[x].row + 2 < 9 && knightObjects[x].column - 1 > 0 && knightObjects[x].allowedMovesAI(knightObjects[x].row + 2, knightObjects[x].column - 1)) {
             chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
             chessBoard[knightObjects[x].row - 2][knightObjects[x].column + 1] = "|__|";
             return;
           }
           // Down and to the Right (2 Down)
-          else if (knightObjects[x].allowedMovesAI(knightObjects[x].row + 2, knightObjects[x].column + 1)) {
+          else if (knightObjects[x].row + 2 < 9 && knightObjects[x].column + 1 < 9 && knightObjects[x].allowedMovesAI(knightObjects[x].row + 2, knightObjects[x].column + 1)) {
             chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
             chessBoard[knightObjects[x].row - 2][knightObjects[x].column - 1] = "|__|";
             return;
           }
           // Up and to the Left (1 Up)
-          else if (knightObjects[x].allowedMovesAI(knightObjects[x].row - 1, knightObjects[x].column - 2)) {
+          else if (knightObjects[x].row - 1 > 0 && knightObjects[x].column - 2 > 0 && knightObjects[x].allowedMovesAI(knightObjects[x].row - 1, knightObjects[x].column - 2)) {
             chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
             chessBoard[knightObjects[x].row + 1][knightObjects[x].column + 2] = "|__|";
             return;
           }
           // Up and to the Right (1 Up)
-          else if (knightObjects[x].allowedMovesAI(knightObjects[x].row - 1, knightObjects[x].column + 2)) {
+          else if (knightObjects[x].row - 1 > 0 && knightObjects[x].column + 2 < 9 && knightObjects[x].allowedMovesAI(knightObjects[x].row - 1, knightObjects[x].column + 2)) {
             chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
             chessBoard[knightObjects[x].row + 1][knightObjects[x].column - 2] = "|__|";
             return;
           }
           // Up and to the Left (1 Up)
-          else if (knightObjects[x].allowedMovesAI(knightObjects[x].row + 1, knightObjects[x].column - 2)) {
+          else if (knightObjects[x].row + 1 < 9 && knightObjects[x].column - 2 > 0 && knightObjects[x].allowedMovesAI(knightObjects[x].row + 1, knightObjects[x].column - 2)) {
             chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
             chessBoard[knightObjects[x].row - 1][knightObjects[x].column + 2] = "|__|";
             return;
           }
           // Up and to the Left (1 Up)
-          else if (knightObjects[x].allowedMovesAI(knightObjects[x].row + 1, knightObjects[x].column + 2)) {
+          else if (knightObjects[x].row + 1 < 9 && knightObjects[x].column + 2 < 9 && knightObjects[x].allowedMovesAI(knightObjects[x].row + 1, knightObjects[x].column + 2)) {
             chessBoard[knightObjects[x].row][knightObjects[x].column] = knightObjects[x].chessPiece;
             chessBoard[knightObjects[x].row - 1][knightObjects[x].column - 2] = "|__|";
             return;
           }
         }
       }
-      // Queen & King
-      else if (i == 14 || i == 15) {
-        for (int x = 0; x < queenObject.length; x++) {
+      // Queen
+      else if (i == 14) {
           // Move Up
-          if (queenObject[x].allowedMovesAI(queenObject[x].row - 1, queenObject[x].column) == true) {
-            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
-            chessBoard[queenObject[x].row + 1][queenObject[x].column] = "|__|";
+          if (queen2.row - 1 > 0 && queen2.allowedMovesAI(queen2.row - 1, queen2.column) == true) {
+            chessBoard[queen2.row][queen2.column] = queen2.chessPiece;
+            chessBoard[queen2.row + 1][queen2.column] = "|__|";
             return;
           } // Move Down
-          else if (queenObject[x].allowedMovesAI(queenObject[x].row + 1, queenObject[x].column) == true) {
-            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
-            chessBoard[queenObject[x].row - 1][queenObject[x].column] = "|__|";
+          else if (queen2.row + 1 < 9 && queen2.allowedMovesAI(queen2.row + 1, queen2.column) == true) {
+            chessBoard[queen2.row][queen2.column] = queen2.chessPiece;
+            chessBoard[queen2.row - 1][queen2.column] = "|__|";
             return;
           } // Move Left
-          else if (queenObject[x].allowedMovesAI(queenObject[x].row, queenObject[x].column - 1) == true) {
-            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
-            chessBoard[queenObject[x].row][queenObject[x].column + 1] = "|__|";
+          else if (queen2.column - 1 > 0 && queen2.allowedMovesAI(queen2.row, queen2.column - 1) == true) {
+            chessBoard[queen2.row][queen2.column] = queen2.chessPiece;
+            chessBoard[queen2.row][queen2.column + 1] = "|__|";
             return;
           } // Move Right
-          else if (queenObject[x].allowedMovesAI(queenObject[x].row, queenObject[x].column + 1) == true) {
-            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
-            chessBoard[queenObject[x].row][queenObject[x].column - 1] = "|__|";
+          else if (queen2.column + 1 < 9 && queen2.allowedMovesAI(queen2.row, queen2.column + 1) == true) {
+            chessBoard[queen2.row][queen2.column] = queen2.chessPiece;
+            chessBoard[queen2.row][queen2.column - 1] = "|__|";
             return;
           }
           // Move Up and Left
-          if (queenObject[x].allowedMovesAI(queenObject[x].row - 1, queenObject[x].column - 1)) {
-            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
-            chessBoard[queenObject[x].row + 1][queenObject[x].column + 1] = "|__|";
+          if (queen2.row - 1 > 0 && queen2.column - 1 > 0 && queen2.allowedMovesAI(queen2.row - 1, queen2.column - 1)) {
+            chessBoard[queen2.row][queen2.column] = queen2.chessPiece;
+            chessBoard[queen2.row + 1][queen2.column + 1] = "|__|";
             return;
           }
           // Move Up and Right
-          else if (queenObject[x].allowedMovesAI(queenObject[x].row - 1, queenObject[x].column + 1)) {
-            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
-            chessBoard[queenObject[x].row + 1][queenObject[x].column - 1] = "|__|";
+          else if (queen2.row - 1 > 0 && queen2.column + 1 < 9 && queen2.allowedMovesAI(queen2.row - 1, queen2.column + 1)) {
+            chessBoard[queen2.row][queen2.column] = queen2.chessPiece;
+            chessBoard[queen2.row + 1][queen2.column - 1] = "|__|";
             return;
           }
           // Move Down and Left
-          else if (queenObject[x].allowedMovesAI(queenObject[x].row + 1, queenObject[x].column - 1)) {
-            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
-            chessBoard[queenObject[x].row - 1][queenObject[x].column + 1] = "|__|";
+          else if (queen2.row + 1 < 9 && queen2.column - 1 > 0 && queen2.allowedMovesAI(queen2.row + 1, queen2.column - 1)) {
+            chessBoard[queen2.row][queen2.column] = queen2.chessPiece;
+            chessBoard[queen2.row - 1][queen2.column + 1] = "|__|";
             return;
           }
           // Move Down and Right
-          else if (queenObject[x].allowedMovesAI(queenObject[x].row + 1, queenObject[x].column + 1)) {
-            chessBoard[queenObject[x].row][queenObject[x].column] = queenObject[x].chessPiece;
-            chessBoard[queenObject[x].row - 1][queenObject[x].column - 1] = "|__|";
+          else if (queen2.row + 1 < 8 && queen2.column + 1 < 9 && queen2.allowedMovesAI(queen2.row + 1, queen2.column + 1)) {
+            chessBoard[queen2.row][queen2.column] = queen2.chessPiece;
+            chessBoard[queen2.row - 1][queen2.column - 1] = "|__|";
             return;
           }
-        }
       }
     }
   }
