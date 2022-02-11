@@ -256,6 +256,16 @@ class AIMoves {
         } // Attack from the Bottom Left (Bishop Only)
         else if ((this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[11])) {
           if (king2.row < 8) {
+            king2.row += 1;
+            kingDefendFunc();
+          } else {
+            king2.row -= 1;
+            kingDefendFunc();
+          }
+        } // Attack from the Bottom Right (Bishop Only)
+        else if ((this.chessBoard[king2.row + x][king2.column + x]).equals(playerPieces[10]) || (this.chessBoard[king2.row + x][king2.column + x]).equals(playerPieces[11])) {
+          if (king2.row < 8) {
+            king2.row += 1;
             kingDefendFunc();
           } else {
             king2.row -= 1;
