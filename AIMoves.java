@@ -318,7 +318,8 @@ class AIMoves {
             System.out.println("Checkmate");
             System.exit(0);
           }
-        } // Attack from the top Right (Bishops Only)
+        }
+        // Attack from the top Right (Bishops Only)
         else if ((this.chessBoard[king2.row - x][king2.column + x]).equals(playerPieces[10]) || (this.chessBoard[king2.row - x][king2.column + x]).equals(playerPieces[11])) {
           // If the king is on a row thats less than 8, then it will move down.
           if (king2.row < 8 && (this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
@@ -331,7 +332,8 @@ class AIMoves {
             System.out.println("Checkmate");
             System.exit(0);
           }
-        } // Attack from the Bottom Left (Bishop Only)
+        }
+        // Attack from the Bottom Left (Bishop Only)
         else if ((this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[11])) {
           if (king2.row < 8 && (this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
             king2.row += 1;
@@ -343,7 +345,8 @@ class AIMoves {
             System.out.println("Checkmate");
             System.exit(0);
           }
-        } // Attack from the Bottom Right (Bishop Only)
+        }
+        // Attack from the Bottom Right (Bishop Only)
         else if ((this.chessBoard[king2.row + x][king2.column + x]).equals(playerPieces[10]) || (this.chessBoard[king2.row + x][king2.column + x]).equals(playerPieces[11])) {
           if (king2.row < 8 && (this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
             king2.row += 1;
