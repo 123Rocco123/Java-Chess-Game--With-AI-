@@ -232,48 +232,74 @@ class AIMoves {
     for (int i = 1; i < 8; i++) {
       // Used to check all of the player pieces.
       for (int x = 0; x < playerPieces.length; x++) {
-        // Attacks from above and to the left (Bishops Only)
-        if ((this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[11])) {
-          this.kingSafe = false;
-          // If the king is on a row thats less than 8, then it will move down.
-          if (king2.row < 8) {
+        // Pawn attack from the Left
+        if (x < 8 && (this.chessBoard[king2.row - 1][king2.column - 1]).equals(playerPieces[x])) {
+          if (king2.row + 1 < 9 && (this.chessBoard[king2.row + 1][king2.column]).equals("|__|")) {
             king2.row += 1;
             kingDefendFunc();
-          } else {
+          } else if (king2.row - 1 > 0 && (this.chessBoard[king2.row - 1][king2.column]).equals("|__|")) {
             king2.row -= 1;
             kingDefendFunc();
+          } else {
+            System.out.print("Checkmate");
+            System.exit(0);
+          }
+        }
+        // Attacks from above and to the left (Bishops Only)
+        else if ((this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[11])) {
+          this.kingSafe = false;
+          // If the king is on a row thats less than 8, then it will move down.
+          if (king2.row < 8 && (this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
+            king2.row += 1;
+            kingDefendFunc();
+          } else if ((this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
+            king2.row -= 1;
+            kingDefendFunc();
+          } else {
+            System.out.println("Checkmate");
+            System.exit(0);
           }
         } // Attack from the top Right (Bishops Only)
         else if ((this.chessBoard[king2.row - x][king2.column + x]).equals(playerPieces[10]) || (this.chessBoard[king2.row - x][king2.column + x]).equals(playerPieces[11])) {
           // If the king is on a row thats less than 8, then it will move down.
-          if (king2.row < 8) {
+          if (king2.row < 8 && (this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
             king2.row += 1;
             kingDefendFunc();
-          } else {
+          } else if ((this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
             king2.row -= 1;
             kingDefendFunc();
+          } else {
+            System.out.println("Checkmate");
+            System.exit(0);
           }
         } // Attack from the Bottom Left (Bishop Only)
         else if ((this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[11])) {
-          if (king2.row < 8) {
+          if (king2.row < 8 && (this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
             king2.row += 1;
             kingDefendFunc();
-          } else {
+          } else if ((this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
             king2.row -= 1;
             kingDefendFunc();
+          } else {
+            System.out.println("Checkmate");
+            System.exit(0);
           }
         } // Attack from the Bottom Right (Bishop Only)
         else if ((this.chessBoard[king2.row + x][king2.column + x]).equals(playerPieces[10]) || (this.chessBoard[king2.row + x][king2.column + x]).equals(playerPieces[11])) {
-          if (king2.row < 8) {
+          if (king2.row < 8 && (this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
             king2.row += 1;
             kingDefendFunc();
-          } else {
+          } else if ((this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
             king2.row -= 1;
             kingDefendFunc();
+          } else {
+            System.out.println("Checkmate");
+            System.exit(0);
           }
         }
-      } this.kingSafe = true;
+      }
     }
+    this.kingSafe = true;
   }
 
   // Used in case there is no other better move
