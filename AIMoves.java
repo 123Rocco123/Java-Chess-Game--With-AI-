@@ -245,6 +245,19 @@ class AIMoves {
             System.exit(0);
           }
         }
+        // Pawn attack from the right
+        else if (x < 8 && (this.chessBoard[king2.row - 1][king2.column + 1]).equals(playerPieces[x])) {
+          if (king2.row + 1 < 9 && (this.chessBoard[king2.row + 1][king2.column]).equals("|__|")) {
+            king2.row += 1;
+            kingDefendFunc();
+          } else if (king2.row - 1 > 0 && (this.chessBoard[king2.row - 1][king2.column]).equals("|__|")) {
+            king2.row -= 1;
+            kingDefendFunc();
+          } else {
+            System.out.print("Checkmate");
+            System.exit(0);
+          }
+        }
         // Attacks from above and to the left (Bishops Only)
         else if ((this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[11])) {
           this.kingSafe = false;
