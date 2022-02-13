@@ -240,11 +240,6 @@ class AIMoves {
           } else if (king2.row - 1 > 0 && (this.chessBoard[king2.row - 1][king2.column]).equals("|__|")) {
             king2.row -= 1;
             kingDefendFunc();
-          } // Move Up and to the Top Left
-          else if (king2.row - 1 > 0 && king2.column - 1 > 0 && (this.chessBoard[king2.row - 1][king2.column - 1]).equals("|__|")) {
-            king2.row -= 1;
-            king2.column -= 1;
-            kingDefendFunc();
           } // Move Up and to the Right
           else if (king2.row - 1 > 0 && king2.column + 1 < 8 && (this.chessBoard[king2.row - 1][king2.column + 1]).equals("|__|")) {
             king2.row -= 1;
@@ -280,6 +275,29 @@ class AIMoves {
             kingDefendFunc();
           } else if (king2.row - 1 > 0 && (this.chessBoard[king2.row - 1][king2.column]).equals("|__|")) {
             king2.row -= 1;
+            kingDefendFunc();
+          } // Move Up and to the Top Left
+          else if (king2.row - 1 > 0 && king2.column - 1 > 0 && (this.chessBoard[king2.row - 1][king2.column - 1]).equals("|__|")) {
+            king2.row -= 1;
+            king2.column -= 1;
+            kingDefendFunc();
+          } // Move Down and to the Left
+          else if (king2.row + 1 < * && king2.column - 1 > 0 && (this.chessBoard[king2.row + 1][king2.column - 1]).equals("|__|")) {
+            king2.row += 1;
+            king2.column -= 1;
+            kingDefendFunc();
+          } // Move Down and to the Right
+          else if (king2.row + 1 < 0 && king2.column + 1 < 8 && (this.chessBoard[king2.row + 1][king2.column + 1]).equals("|__|")) {
+            king2.row += 1;
+            king2.column += 1;
+            kingDefendFunc();
+          } // Move Right
+          else if (king2.column + 1 < 8 && (this.chessBoard[king2.row][king2.column + 1]).equals("|__|")) {
+            king2.column += 1;
+            kingDefendFunc();
+          } // Move Left
+          else if (king2.column - 1 > 0 && (this.chessBoard[king2.row][king2.column - 1]).equals("|__|")) {
+            king2.column -= 1;
             kingDefendFunc();
           } else {
             System.out.print("Checkmate");
