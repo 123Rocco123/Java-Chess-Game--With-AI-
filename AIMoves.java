@@ -226,6 +226,52 @@ class AIMoves {
     pawnAssignment();
   }
 
+  // King Move function
+     // Used to move the king to safety.
+     // The parameters are used to determine the possible locations that the king can move to. 
+  public void kingMove(boolean Ahead, boolean Back, boolean Right, boolean Left, boolean TopLeft, boolean TopRight, boolean BottomLeft, boolean BottomRight) {
+    // Move Up and to the Top Left
+    if (Topleft == true && king2.row - 1 > 0 && king2.column - 1 > 0 && (this.chessBoard[king2.row - 1][king2.column - 1]).equals("|__|")) {
+      king2.row -= 1;
+      king2.column -= 1;
+      kingDefendFunc();
+    } // Move Up and to the Top Right
+    if (Topleft == true && king2.row - 1 > 0 && king2.column + 1 < 9 && (this.chessBoard[king2.row - 1][king2.column + 1]).equals("|__|")) {
+      king2.row -= 1;
+      king2.column += 1;
+      kingDefendFunc();
+    } // Move Down and to the Left
+    else if (BottomLeft == true && king2.row + 1 < 9 && king2.column - 1 > 0 && (this.chessBoard[king2.row + 1][king2.column - 1]).equals("|__|")) {
+      king2.row += 1;
+      king2.column -= 1;
+      kingDefendFunc();
+    } // Move Down and to the Right
+    else if (BottomRight == true && king2.row + 1 < 0 && king2.column + 1 < 8 && (this.chessBoard[king2.row + 1][king2.column + 1]).equals("|__|")) {
+      king2.row += 1;
+      king2.column += 1;
+      kingDefendFunc();
+    } // Move Right
+    else if (Right == true && king2.column + 1 < 8 && (this.chessBoard[king2.row][king2.column + 1]).equals("|__|")) {
+      king2.column += 1;
+      kingDefendFunc();
+    } // Move Left
+    else if (Left == true && king2.column - 1 > 0 && (this.chessBoard[king2.row][king2.column - 1]).equals("|__|")) {
+      king2.column -= 1;
+      kingDefendFunc();
+    } // Move Ahead
+    else if (Ahead == true && king2.column - 1 > 0 && (this.chessBoard[king2.row - 1][king2.column]).equals("|__|")) {
+      king2.row -= 1;
+      kingDefendFunc();
+    } // Move Back
+    else if (Back == true && king2.row + 1 < 9 && (this.chessBoard[king2.row + 1][king2.column]).equals("|__|")) {
+      king2.row += 1;
+      kingDefendFunc();
+    } else {
+      System.out.print("Checkmate");
+      System.exit(0);
+    }
+  }
+
   // The function below is executed when the King chess piece is under attack.
   public void kingDefendFunc() {
     // The function below is used to check possible attacks from all directions.
@@ -234,162 +280,31 @@ class AIMoves {
       for (int x = 0; x < playerPieces.length; x++) {
         // Pawn attack from the Top Left
         if (x < 8 && (this.chessBoard[king2.row - 1][king2.column - 1]).equals(playerPieces[x])) {
-          if (king2.row + 1 < 9 && (this.chessBoard[king2.row + 1][king2.column]).equals("|__|")) {
-            king2.row += 1;
-            kingDefendFunc();
-          } else if (king2.row - 1 > 0 && (this.chessBoard[king2.row - 1][king2.column]).equals("|__|")) {
-            king2.row -= 1;
-            kingDefendFunc();
-          } // Move Up and to the Right
-          else if (king2.row - 1 > 0 && king2.column + 1 < 8 && (this.chessBoard[king2.row - 1][king2.column + 1]).equals("|__|")) {
-            king2.row -= 1;
-            king2.column += 1;
-            kingDefendFunc();
-          } // Move Down and to the Left
-          else if (king2.row + 1 < * && king2.column - 1 > 0 && (this.chessBoard[king2.row + 1][king2.column - 1]).equals("|__|")) {
-            king2.row += 1;
-            king2.column -= 1;
-            kingDefendFunc();
-          } // Move Down and to the Right
-          else if (king2.row + 1 < 0 && king2.column + 1 < 8 && (this.chessBoard[king2.row + 1][king2.column + 1]).equals("|__|")) {
-            king2.row += 1;
-            king2.column += 1;
-            kingDefendFunc();
-          } // Move Right
-          else if (king2.column + 1 < 8 && (this.chessBoard[king2.row][king2.column + 1]).equals("|__|")) {
-            king2.column += 1;
-            kingDefendFunc();
-          } // Move Left
-          else if (king2.column - 1 > 0 && (this.chessBoard[king2.row][king2.column - 1]).equals("|__|")) {
-            king2.column -= 1;
-            kingDefendFunc();
-          } else {
-            System.out.print("Checkmate");
-            System.exit(0);
-          }
+          kingMove(true, true, true, true, false, true, true, true);
         }
         // Pawn attack from the right
         else if (x < 8 && (this.chessBoard[king2.row - 1][king2.column + 1]).equals(playerPieces[x])) {
-          // Move down
-          if (king2.row + 1 < 9 && (this.chessBoard[king2.row + 1][king2.column]).equals("|__|")) {
-            king2.row += 1;
-            kingDefendFunc();
-          } // Move Up
-          else if (king2.row - 1 > 0 && (this.chessBoard[king2.row - 1][king2.column]).equals("|__|")) {
-            king2.row -= 1;
-            kingDefendFunc();
-          } // Move Up and to the Top Left
-          else if (king2.row - 1 > 0 && king2.column - 1 > 0 && (this.chessBoard[king2.row - 1][king2.column - 1]).equals("|__|")) {
-            king2.row -= 1;
-            king2.column -= 1;
-            kingDefendFunc();
-          } // Move Down and to the Left
-          else if (king2.row + 1 < * && king2.column - 1 > 0 && (this.chessBoard[king2.row + 1][king2.column - 1]).equals("|__|")) {
-            king2.row += 1;
-            king2.column -= 1;
-            kingDefendFunc();
-          } // Move Down and to the Right
-          else if (king2.row + 1 < 0 && king2.column + 1 < 8 && (this.chessBoard[king2.row + 1][king2.column + 1]).equals("|__|")) {
-            king2.row += 1;
-            king2.column += 1;
-            kingDefendFunc();
-          } // Move Right
-          else if (king2.column + 1 < 8 && (this.chessBoard[king2.row][king2.column + 1]).equals("|__|")) {
-            king2.column += 1;
-            kingDefendFunc();
-          } // Move Left
-          else if (king2.column - 1 > 0 && (this.chessBoard[king2.row][king2.column - 1]).equals("|__|")) {
-            king2.column -= 1;
-            kingDefendFunc();
-          } else {
-            System.out.print("Checkmate");
-            System.exit(0);
-          }
+          kingMove(true, true, true, true, true, false, true, true);
         }
         // Attack from Rook Straight Above
         else if (x == 8 || x == 9 && (this.chessBoard[king.row - i][king.column]).equals(x)) {
-          // Move Up and to the Top Left
-          if (king2.row - 1 > 0 && king2.column - 1 > 0 && (this.chessBoard[king2.row - 1][king2.column - 1]).equals("|__|")) {
-            king2.row -= 1;
-            king2.column -= 1;
-            kingDefendFunc();
-          } // Move Down and to the Left
-          else if (king2.row + 1 < * && king2.column - 1 > 0 && (this.chessBoard[king2.row + 1][king2.column - 1]).equals("|__|")) {
-            king2.row += 1;
-            king2.column -= 1;
-            kingDefendFunc();
-          } // Move Down and to the Right
-          else if (king2.row + 1 < 0 && king2.column + 1 < 8 && (this.chessBoard[king2.row + 1][king2.column + 1]).equals("|__|")) {
-            king2.row += 1;
-            king2.column += 1;
-            kingDefendFunc();
-          } // Move Right
-          else if (king2.column + 1 < 8 && (this.chessBoard[king2.row][king2.column + 1]).equals("|__|")) {
-            king2.column += 1;
-            kingDefendFunc();
-          } // Move Left
-          else if (king2.column - 1 > 0 && (this.chessBoard[king2.row][king2.column - 1]).equals("|__|")) {
-            king2.column -= 1;
-            kingDefendFunc();
-          } else {
-            System.out.print("Checkmate");
-            System.exit(0);
-          }
+          kingMove(false, false, true, true, true, true, true, true);
         }
         // Attacks from above and to the left (Bishops Only)
         else if ((this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[11])) {
-          this.kingSafe = false;
-          // If the king is on a row thats less than 8, then it will move down.
-          if (king2.row < 8 && (this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
-            king2.row += 1;
-            kingDefendFunc();
-          } else if ((this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
-            king2.row -= 1;
-            kingDefendFunc();
-          } else {
-            System.out.println("Checkmate");
-            System.exit(0);
-          }
+          kingMove(true, true, true, true, false, true, true, false);
         }
         // Attack from the top Right (Bishops Only)
         else if ((this.chessBoard[king2.row - x][king2.column + x]).equals(playerPieces[10]) || (this.chessBoard[king2.row - x][king2.column + x]).equals(playerPieces[11])) {
-          // If the king is on a row thats less than 8, then it will move down.
-          if (king2.row < 8 && (this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
-            king2.row += 1;
-            kingDefendFunc();
-          } else if ((this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
-            king2.row -= 1;
-            kingDefendFunc();
-          } else {
-            System.out.println("Checkmate");
-            System.exit(0);
-          }
+          kingMove(true, true, true, true, true, false, false, true);
         }
         // Attack from the Bottom Left (Bishop Only)
         else if ((this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[11])) {
-          if (king2.row < 8 && (this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
-            king2.row += 1;
-            kingDefendFunc();
-          } else if ((this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
-            king2.row -= 1;
-            kingDefendFunc();
-          } else {
-            System.out.println("Checkmate");
-            System.exit(0);
-          }
+          kingMove(true, true, true, true, true, false, false, true);
         }
         // Attack from the Bottom Right (Bishop Only)
         else if ((this.chessBoard[king2.row + x][king2.column + x]).equals(playerPieces[10]) || (this.chessBoard[king2.row + x][king2.column + x]).equals(playerPieces[11])) {
-          if (king2.row < 8 && (this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
-            king2.row += 1;
-            kingDefendFunc();
-          } else if ((this.chessBoard[king.row + 1][king.column]).equals("|__|")) {
-            king2.row -= 1;
-            kingDefendFunc();
-          } else {
-            System.out.println("Checkmate");
-            System.exit(0);
-          }
+          kingMove(true, true, true, true, false, true, true, false);
         }
       }
     }
