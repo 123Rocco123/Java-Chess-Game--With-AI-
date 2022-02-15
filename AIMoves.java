@@ -228,7 +228,7 @@ class AIMoves {
 
   // King Move function
      // Used to move the king to safety.
-     // The parameters are used to determine the possible locations that the king can move to. 
+     // The parameters are used to determine the possible locations that the king can move to.
   public void kingMove(boolean Ahead, boolean Back, boolean Right, boolean Left, boolean TopLeft, boolean TopRight, boolean BottomLeft, boolean BottomRight) {
     // Move Up and to the Top Left
     if (Topleft == true && king2.row - 1 > 0 && king2.column - 1 > 0 && (this.chessBoard[king2.row - 1][king2.column - 1]).equals("|__|")) {
@@ -289,6 +289,18 @@ class AIMoves {
         // Attack from Rook Straight Above
         else if (x == 8 || x == 9 && (this.chessBoard[king.row - i][king.column]).equals(x)) {
           kingMove(false, false, true, true, true, true, true, true);
+        }
+        // Attack from Rook Straight Below
+        else if (x == 8 || x == 9 && (this.chessBoard[king.row + i][king.column]).equals(x)) {
+          kingMove(false, false, true, true, true, true, true, true);
+        }
+        // Attack from Rook Right
+        else if (x == 8 || x == 9 && (this.chessBoard[king.row - i][king.column]).equals(x)) {
+          kingMove(true, true, false, false, true, true, true, true);
+        }
+        // Attack from Rook Left
+        else if (x == 8 || x == 9 && (this.chessBoard[king.row - i][king.column]).equals(x)) {
+          kingMove(true, true, false, false, true, true, true, true);
         }
         // Attacks from above and to the left (Bishops Only)
         else if ((this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[11])) {
