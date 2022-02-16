@@ -319,8 +319,20 @@ class AIMoves {
           kingMove(true, true, true, true, false, true, true, false);
         }
         // Attack from the Bottom Left (Knight Only (Sideways L))
+        else if ((this.chessBoard[king2.row + 1][king2.column - 2]).equals(playerPieces[12]) || (this.chessBoard[king2.row + 1][king2.column - 2]).equals(playerPieces[13])) {
+          kingMove(true, true, true, true, true, true, true, true);
+        }
+        // Attack from the Bottom Right (Knight Only (Sideways L))
+        else if ((this.chessBoard[king2.row + 1][king2.column + 2]).equals(playerPieces[12]) || (this.chessBoard[king2.row + 1][king2.column + 2]).equals(playerPieces[13])) {
+          kingMove(true, true, true, true, true, true, true, true);
+        }
+        // Attack from the Top Left (Knight Only (Sideways L))
         else if ((this.chessBoard[king2.row - 1][king2.column - 2]).equals(playerPieces[12]) || (this.chessBoard[king2.row - 1][king2.column - 2]).equals(playerPieces[13])) {
-          kingMove(true, true, true, true, false, true, true, false);
+          kingMove(true, true, true, true, true, true, true, true);
+        }
+        // Attack from the Top Right (Knight Only (Sideways L))
+        else if ((this.chessBoard[king2.row - 1][king2.column + 2]).equals(playerPieces[12]) || (this.chessBoard[king2.row - 1][king2.column + 2]).equals(playerPieces[13])) {
+          kingMove(true, true, true, true, true, true, true, true);
         }
       }
     }
