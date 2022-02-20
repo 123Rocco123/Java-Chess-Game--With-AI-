@@ -334,6 +334,22 @@ class AIMoves {
         else if ((this.chessBoard[king2.row - 1][king2.column + 2]).equals(playerPieces[12]) || (this.chessBoard[king2.row - 1][king2.column + 2]).equals(playerPieces[13])) {
           kingMove(true, true, true, true, true, true, true, true);
         }
+        // Attack from the Top Left (Knight Only (Standing L))
+        else if ((this.chessBoard[king2.row - 2][king2.column - 1]).equals(playerPieces[12]) || (this.chessBoard[king2.row - 2][king2.column - 1]).equals(playerPieces[13])) {
+          kingMove(true, true, true, true, true, true, true, true);
+        }
+        // Attack from the Top Right (Knight Only (Standing L))
+        else if ((this.chessBoard[king2.row - 2][king2.column + 1]).equals(playerPieces[12]) || (this.chessBoard[king2.row - 2][king2.column + 1]).equals(playerPieces[13])) {
+          kingMove(true, true, true, true, true, true, true, true);
+        }
+        // Attack from the Bottom Left (Knight Only (Standing L))
+        else if ((this.chessBoard[king2.row + 2][king2.column - 1]).equals(playerPieces[12]) || (this.chessBoard[king2.row + 2][king2.column - 1]).equals(playerPieces[13])) {
+          kingMove(true, true, true, true, true, true, true, true);
+        }
+        // Attack from the Bottom Right (Knight Only (Standing L))
+        else if ((this.chessBoard[king2.row + 2][king2.column + 1]).equals(playerPieces[12]) || (this.chessBoard[king2.row + 2][king2.column + 1]).equals(playerPieces[13])) {
+          kingMove(true, true, true, true, true, true, true, true);
+        }
       }
     }
     this.kingSafe = true;
