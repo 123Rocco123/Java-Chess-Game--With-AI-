@@ -287,35 +287,35 @@ class AIMoves {
           kingMove(true, true, true, true, true, false, true, true);
         }
         // Attack from Rook Straight Above
-        else if (x == 8 || x == 9 && (this.chessBoard[king2.row - i][king2.column]).equals(x)) {
+        else if (x == 8 || x == 9 && (this.chessBoard[king2.row - i][king2.column]).equals(x) || (this.chessBoard[king2.row - i][king2.column]).equals(playerPieces[14])) {
           kingMove(false, false, true, true, true, true, true, true);
         }
         // Attack from Rook Straight Below
-        else if (x == 8 || x == 9 && (this.chessBoard[king2.row + i][king2.column]).equals(x)) {
+        else if (x == 8 || x == 9 && (this.chessBoard[king2.row + i][king2.column]).equals(x) || (this.chessBoard[king2.row + i][king2.column]).equals(playerPieces[14])) {
           kingMove(false, false, true, true, true, true, true, true);
         }
         // Attack from Rook Right
-        else if (x == 8 || x == 9 && (this.chessBoard[king2.row - i][king2.column]).equals(x)) {
+        else if (x == 8 || x == 9 && (this.chessBoard[king2.row][king2.column + i]).equals(x) || (this.chessBoard[king2.row][king2.column + i]).equals(playerPieces[14])) {
           kingMove(true, true, false, false, true, true, true, true);
         }
         // Attack from Rook Left
-        else if (x == 8 || x == 9 && (this.chessBoard[king2.row - i][king2.column]).equals(x)) {
+        else if (x == 8 || x == 9 && (this.chessBoard[king2.row][king2.column - i]).equals(x) || (this.chessBoard[king2.row][king2.column + i]).equals(playerPieces[14])) {
           kingMove(true, true, false, false, true, true, true, true);
         }
-        // Attacks from above and to the left (Bishops Only)
-        else if ((this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[11])) {
+        // Attacks from above and to the left (Bishops & Queen)
+        else if ((this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[11]) || (this.chessBoard[king2.row - x][king2.column - x]).equals(playerPieces[14])) {
           kingMove(true, true, true, true, false, true, true, false);
         }
         // Attack from the top Right (Bishops Only)
-        else if ((this.chessBoard[king2.row - x][king2.column + x]).equals(playerPieces[10]) || (this.chessBoard[king2.row - x][king2.column + x]).equals(playerPieces[11])) {
+        else if ((this.chessBoard[king2.row - x][king2.column + x]).equals(playerPieces[10]) || (this.chessBoard[king2.row - x][king2.column + x]).equals(playerPieces[11]) || (this.chessBoard[king2.row - x][king2.column + x]).equals(playerPieces[14])) {
           kingMove(true, true, true, true, true, false, false, true);
         }
         // Attack from the Bottom Left (Bishop Only)
-        else if ((this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[11])) {
+        else if ((this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[10]) || (this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[11]) || (this.chessBoard[king2.row + x][king2.column - x]).equals(playerPieces[14])) {
           kingMove(true, true, true, true, true, false, false, true);
         }
         // Attack from the Bottom Right (Bishop Only)
-        else if ((this.chessBoard[king2.row + x][king2.column + x]).equals(playerPieces[10]) || (this.chessBoard[king2.row + x][king2.column + x]).equals(playerPieces[11])) {
+        else if ((this.chessBoard[king2.row + x][king2.column + x]).equals(playerPieces[10]) || (this.chessBoard[king2.row + x][king2.column + x]).equals(playerPieces[11]) || (this.chessBoard[king2.row + x][king2.column + x]).equals(playerPieces[14])) {
           kingMove(true, true, true, true, false, true, true, false);
         }
         // Attack from the Bottom Left (Knight Only (Sideways L))
